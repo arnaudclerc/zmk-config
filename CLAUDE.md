@@ -163,7 +163,6 @@ make list
 
 # Build using direct targets (read from build.yaml)
 make build/hillside_view_left-nice_nano
-make build/cygnus_dongle-xiao_ble
 
 # Or use convenience aliases
 # Hillside View
@@ -172,15 +171,6 @@ make hsv/left             # Build left (central)
 make hsv/right            # Build right (peripheral)
 make hsv/upload/left      # Upload left firmware
 make hsv/upload/right     # Upload right firmware
-
-# Cygnus
-make cygnus/all           # Build left + right + dongle
-make cygnus/left          # Build left (peripheral)
-make cygnus/right         # Build right (peripheral)
-make cygnus/dongle        # Build dongle (central)
-make cygnus/upload/left   # Upload left firmware
-make cygnus/upload/right  # Upload right firmware
-make cygnus/upload/dongle # Upload dongle firmware
 
 # Maintenance
 make update               # Update west dependencies
