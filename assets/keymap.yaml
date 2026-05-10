@@ -1,0 +1,109 @@
+layout: {qmk_keyboard: hillside/46/0_1}
+draw_config:
+  combo_h: 22
+  combo_w: 30
+  key_ry: 10
+  key_rx: 10
+  svg_extra_style: |
+    rect.dead, rect.combo.dead {
+      visibility : hidden ;
+    }
+    text.hold {
+      fill: #fee;
+    }
+    text.tl, text.shifted {
+      fill: #8df;
+    }
+    text.tr {
+      fill: #27c;
+    }
+    text.magic {
+      fill: #af9;
+    }
+layers:
+  Default: 
+  - [{t: ESC, tl: GRAVE}, {t: Q, h: '1'}, {t: W, h: '2'}, {t: F, h: '3'}, {t: P, h: '4'}, {t: B, h: '5'}, {t: J, h: '6', type: dance1}, {t: L, h: '7'}, {t: U, h: '8', tl: ù}, {t: Y, h: '9'}, {t: COLON, bl: SEMI}, $$mdi:backspace-outline$$]
+  - [TAB, {t: A, tl: À, tr: A, h: LCTRL}, {t: R, h: LALT}, {t: S, h: LMETA}, {t: T, h: LSHIFT}, G, M, {t: N, h: RSHIFT}, {t: E, tl: É, h: RMETA}, {t: I, h: RALT}, {t: O, h: RCTRL}, ENTER]
+  - ['~', Z, X, {t: C, h: 'ç'}, D, V, {type: dead}, {type: dead}, K, H, {t: COMMA, h: LT}, {t: DOT, h: GT}, {t: /, h: '?'}, {t: SQT, tl: $$mdi:format-quote-open$$, tr: GRAVE}]
+  - [Numbers, {t: $$material:refresh$$, h: Symbols}, {t: SPACE, h: Media}, '', '', {t: SPACE, h: Media}, {t: $$material:refresh$$, h: Symbols}, Numbers]
+  Vim:
+  - ['', '', b, e, w, '', '', g, o, u, '', '']
+  - ['', q, n, s, r, '', '', h, j, k, l, '', '']
+  - ['', f, c, t, '', {type: dead}, {type: dead}, '', i, a, ., '', '']
+  - [{t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}]
+  Symbols:
+  - [ '', 'LPAR', 'LBRC', 'LBKT', 'LT', '', '', 'GT', 'RBKT', 'RBRC', 'RPAR']
+  - [ '', '', '&', '$', '#', '@', '', '', ^, '*', '=', '-', '']
+  - [ '', '_', '?', '\', '/', '', {type: dead}, {type: dead}, '', '?', '|', '~', '!', '']
+  - [ '', {type: held}, '', {t: Adjust, s: GoTo}, {t: Adjust, s: GoTo}, '', {type: held}, '']
+  Numbers:
+  - [TAB, '-', '+', {t: '7', h: F7}, {t: '8', h: F8}, {t: '9', h: F9}, '', HOME, UP, $$mdi:arrow-collapse-up$$, END, '']
+  - [ '', '/', '*', {t: '4', h: F4}, {t: '5', h: F5}, {t: '6', h: F6}, '', LEFT, DOWN, RIGHT, '', '']
+  - [LALT, '', '', {t: '0', h: F10}, {t: '1', h: F1}, {t: '2', h: F2}, {type: dead}, {type: dead}, '', '', '', $$mdi:arrow-collapse-down$$, '', '']
+  - [{type: held}, '', '', {t: Adjust, s: GoTo}, {t: Adjust, s: GoTo}, '', '', {type: held}]
+  Media:
+  - ['', C_PREV, C_NEXT, '', '', $$material:volume_up$$, C_BRI_UP, '', VPN_UP, '', '', '']
+  - ['', C_PAUSE, C_PLAY, '', '', $$material:volume_down$$, C_BRI_DN, '', VPN_DN, '', '', '']
+  - ['', '', '', '', '', $$material:volume_off$$, {type: dead}, {type: dead}, '', '', '', '']
+  - ['', '', '', {t: $$mdi:microphone-off$$, s: mic}, {type: held}, {t: Adjust, s: GoTo}, {t: Adjust, s: GoTo}, {type: held}, {t: $$mdi:microphone-off$$, s: mic}, '']
+  Adjust:
+  - ['', $$mdi:bluetooth-connect$$, $$mdi:led-on$$, '', BT_PRV, BT_NXT, BT_PRV, BT_NXT, '', $$mdi:led-on$$, $$mdi:bluetooth-connect$$, '']
+  - ['', $$mdi:bluetooth-off$$, $$mdi:led-off$$, '', '', '', '', '', '', $$mdi:led-off$$,  $$mdi:bluetooth-off$$, '']
+  - ['', '', $$mdi:android-studio$$, '', '', BT_CLR, {type: dead}, {type: dead}, BT_CLR, '', '', $$mdi:android-studio$$, '', '']
+  - [{t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}]
+combos:
+- p: [17, 18]
+  k: 'cap_word'
+  l: [Default]
+  w: 50
+- p: [40, 43]
+  k: Vim
+  l: [Default]
+- p: [15, 16]
+  k: '$$mdi:asterisk$$'
+  l: [Default]
+- p: [13, 14]
+  k: '$$mdi:equal$$'
+  l: [Default]
+- p: [25, 26]
+  k: '$$mdi:minus$$'
+  l: [Default]
+- p: [3, 8]
+  a: top
+  k: '$$mdi:currency-usd$$'
+  l: [Default]
+- p: [3, 4]
+  k: '$$mdi:ampersand$$'
+  l: [Default]
+- p: [7, 8]
+  k: '$$mdi:chevron-up$$'
+  l: [Default]
+- p: [8, 9]
+  k: '$$mdi:at$$'
+  l: [Default]
+- p: [19, 20]
+  k: '$$mdi:percent-outline$$'
+  l: [Default]
+- p: [21, 22]
+  k: '$$mdi:pound$$'
+  l: [Default]
+- p: [35, 36]
+  k: '_'
+  l: [Default]
+- p: [33, 34]
+  k: 'v visual'
+  l: [Vim]
+  w: 40
+  h: 30
+- p: [20, 21]
+  k: 'y Yank'
+  l: [Vim]
+  w: 40
+  h: 30
+- p: [19, 20]
+  k: 'p Past'
+  l: [Vim]
+  w: 40
+  h: 30
+  
+  
