@@ -1,109 +1,243 @@
 layout: {qmk_keyboard: hillside/46/0_1}
+
 draw_config:
+  append_colon_to_layer_header: false
+  dark_mode: true
+  footer_text: "arnaud/zmk-config"
+  glyph_tap_size: 15
+  glyph_hold_size: 12
+  glyph_shifted_size: 10
+  legend_rel_y: 1
+  outer_pad_w: 10
+  outer_pad_h: 10
+  small_pad: 4
   combo_h: 22
   combo_w: 30
   key_ry: 10
   key_rx: 10
   svg_extra_style: |
-    rect.dead, rect.combo.dead {
+    
+    svg path { fill: inherit; }
+
+    svg.keymap {
+        --color-bg:      #7c6f64;
+        --color-key:     #fbf1c7;
+        --color-text:    #3c3836;
+        --color-ghost:   #928374;
+        --color-dendron: #d5c4a1;
+        --color-held:    #bdae93;
+
+        --color-fn:      #458588;
+        --color-nav:     #d79921;
+        --color-num:     #d65d0e;
+        --color-sys:     #689d6a;
+
+        fill: var(--color-text);
+        background-color: var(--color-bg);
+        font-family: Calibri, system-ui, sans-serif;
+        font-size: 16px;
+        font-kerning: normal;
+        text-rendering: optimizeLegibility;
+    }
+
+    text {
+        text-anchor: middle;
+        dominant-baseline: middle;
+        letter-spacing: 0.02em;
+    }
+
+    text.tap     { font-weight: 500; }
+    text.hold    { font-weight: 400; font-size: 11px; }
+    text.shifted { font-weight: 400; font-size: 11px; }
+    text.combo, text.left, text.right, text.tl, text.tr, text.bl, text.br { font-size: 10px; }
+
+
+    text.layer-activator { text-decoration: underline; }
+    text.combo.hold, text.combo.shifted, text.combo.left, text.combo.right { font-size: 8px; }
+
+    text.label, text.footer {
+        fill: var(--color-key);
+        stroke: var(--color-bg);
+        stroke-width: 4;
+        paint-order: stroke;
+    }
+    text.label  { font-weight: bold; text-anchor: start; }
+    text.footer { text-anchor: end; dominant-baseline: auto; }
+
+    rect.key { fill: var(--color-key); stroke-width: 0; }
+    rect.held, rect.combo.held                { fill: var(--color-held); }
+    .layer-Combos rect.key                    { fill: var(--color-ghost); }
+
+    path.combo { stroke: var(--color-dendron); stroke-width: 2; stroke-dasharray: 2, 3; opacity: 0.45; fill: none; }
+
+    text.tl, use.tl { fill: var(--color-fn); }
+    text.tr, use.tr { fill: var(--color-nav); }
+    text.bl, use.bl { fill: var(--color-num); }
+    text.br, use.br { fill: var(--color-sys); }
+    text.s, use.s { fill: var(--color-num); }
+
+    .keypos-1 text.hold { fill: var(--color-nav); }
+    .keypos-31 text.hold { fill: var(--color-fn); }
+    .keypos-32 text.hold { fill: var(--color-num); font-size: 15px; }
+    .keypos-32 text.tap  { fill: var(--color-num); }
+    .keypos-33 text.hold { font-size: 15px; }
+
+    .icon-tabler > path                             { fill: inherit; stroke: inherit; stroke-width: 2; }
+    .icon-tabler > path[stroke="none"][fill="none"] { visibility: hidden; }
+
+    @media (prefers-color-scheme: dark) {
+        svg.keymap {
+            --color-bg:      #a89984;
+            --color-key:     #282828;
+            --color-text:    #ebdbb2;
+            --color-ghost:   #928374;
+            --color-dendron: #504945;
+            --color-held:    #665c54;
+
+            --color-fn:      #458588;
+            --color-nav:     #fabd2f;
+            --color-num:     #d65d0e;
+            --color-sys:     #689d6a;
+        }
+    }
+    
+    
+    
+    rect.dead {
       visibility : hidden ;
     }
     text.hold {
-      fill: #fee;
-    }
-    text.tl, text.shifted {
       fill: #8df;
-    }
-    text.tr {
-      fill: #27c;
     }
     text.magic {
       fill: #af9;
     }
 layers:
-  Default: 
-  - [{t: ESC, tl: GRAVE}, {t: Q, h: '1'}, {t: W, h: '2'}, {t: F, h: '3'}, {t: P, h: '4'}, {t: B, h: '5'}, {t: J, h: '6', type: dance1}, {t: L, h: '7'}, {t: U, h: '8', tl: ù}, {t: Y, h: '9'}, {t: COLON, bl: SEMI}, $$mdi:backspace-outline$$]
-  - [TAB, {t: A, tl: À, tr: A, h: LCTRL}, {t: R, h: LALT}, {t: S, h: LMETA}, {t: T, h: LSHIFT}, G, M, {t: N, h: RSHIFT}, {t: E, tl: É, h: RMETA}, {t: I, h: RALT}, {t: O, h: RCTRL}, ENTER]
-  - ['~', Z, X, {t: C, h: 'ç'}, D, V, {type: dead}, {type: dead}, K, H, {t: COMMA, h: LT}, {t: DOT, h: GT}, {t: /, h: '?'}, {t: SQT, tl: $$mdi:format-quote-open$$, tr: GRAVE}]
-  - [Numbers, {t: $$material:refresh$$, h: Symbols}, {t: SPACE, h: Media}, '', '', {t: SPACE, h: Media}, {t: $$material:refresh$$, h: Symbols}, Numbers]
   Vim:
-  - ['', '', b, e, w, '', '', g, o, u, '', '']
-  - ['', q, n, s, r, '', '', h, j, k, l, '', '']
-  - ['', f, c, t, '', {type: dead}, {type: dead}, '', i, a, ., '', '']
-  - [{t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}]
+  - ['', '', {t: b, s: before}, {t: e, s: end}, {t: w, s: word}, '', '', {t: g, s: go to}, {t: o, s: newline}, {t: u, s: undo}, '', '']
+  - ['LSHIFT', {t: q, s: record}, {t: n, s: next/prev}, {t: s, s: surround}, {t: r, s: replace}, '', '', {t: h, s: left}, {t: j, s: down}, {t: k, s: up}, {t: l, s: right}, '']
+  - ['LCTRL', '', {t: f, s: find}, {t: c, s: change}, {t: t, s: till}, '', {type: dead}, {type: dead}, '', {t: i, s: insert}, {t: a, s: append}, {t: ., s: repeat}, '', '']
+  - [{t: $$mdi:chevron-double-down$$, type: trans}, {t: "▽", type: trans}, d, lock layer, {t: Vim, type: held}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}]
   Symbols:
-  - [ '', 'LPAR', 'LBRC', 'LBKT', 'LT', '', '', 'GT', 'RBKT', 'RBRC', 'RPAR']
-  - [ '', '', '&', '$', '#', '@', '', '', ^, '*', '=', '-', '']
-  - [ '', '_', '?', '\', '/', '', {type: dead}, {type: dead}, '', '?', '|', '~', '!', '']
+  - [ '', '', 'LBRC', 'RBRC', '#', '@', '&', ':', 'LT', 'GT', '', '']
+  - [ {t: Symbols, type: held}, '', 'LPAR', 'RPAR', '$', '_', '-', '=', '+', '*', '', '']
+  - [ '', '', 'LBKT', 'RBKT', '\', '/', {type: dead}, {type: dead}, '<', '!', '>', '?', '', '']
   - [ '', {type: held}, '', {t: Adjust, s: GoTo}, {t: Adjust, s: GoTo}, '', {type: held}, '']
   Numbers:
-  - [TAB, '-', '+', {t: '7', h: F7}, {t: '8', h: F8}, {t: '9', h: F9}, '', HOME, UP, $$mdi:arrow-collapse-up$$, END, '']
-  - [ '', '/', '*', {t: '4', h: F4}, {t: '5', h: F5}, {t: '6', h: F6}, '', LEFT, DOWN, RIGHT, '', '']
-  - [LALT, '', '', {t: '0', h: F10}, {t: '1', h: F1}, {t: '2', h: F2}, {type: dead}, {type: dead}, '', '', '', $$mdi:arrow-collapse-down$$, '', '']
+  - [TAB, '-', '+', {t: '7', h: F7}, {t: '8', h: F8}, {t: '9', h: F9}, '', HOME, {t: UP, s: $$mdi:arrow-collapse-up$$}, END, '', '']
+  - [ '', '/', '*', {t: '4', h: F4}, {t: '5', h: F5}, {t: '6', h: F6}, '', LEFT, {t: DOWN, h: $$mdi:arrow-collapse-down$$}, RIGHT, '', '']
+  - [LALT, '', '', {t: '0', h: F10}, {t: '1', h: F1}, {t: '2', h: F2}, {type: dead}, {type: dead}, '', '', '', '', '', '']
   - [{type: held}, '', '', {t: Adjust, s: GoTo}, {t: Adjust, s: GoTo}, '', '', {type: held}]
   Media:
   - ['', C_PREV, C_NEXT, '', '', $$material:volume_up$$, C_BRI_UP, '', VPN_UP, '', '', '']
   - ['', C_PAUSE, C_PLAY, '', '', $$material:volume_down$$, C_BRI_DN, '', VPN_DN, '', '', '']
   - ['', '', '', '', '', $$material:volume_off$$, {type: dead}, {type: dead}, '', '', '', '']
-  - ['', '', '', {t: $$mdi:microphone-off$$, s: mic}, {type: held}, {t: Adjust, s: GoTo}, {t: Adjust, s: GoTo}, {type: held}, {t: $$mdi:microphone-off$$, s: mic}, '']
+  - ['', '', '', {t: $$mdi:microphone-off$$, s: mic}, '', {type: held}, {t: Adjust, s: GoTo}, '', {t: $$mdi:microphone-off$$, s: mic}, '']
   Adjust:
   - ['', $$mdi:bluetooth-connect$$, $$mdi:led-on$$, '', BT_PRV, BT_NXT, BT_PRV, BT_NXT, '', $$mdi:led-on$$, $$mdi:bluetooth-connect$$, '']
   - ['', $$mdi:bluetooth-off$$, $$mdi:led-off$$, '', '', '', '', '', '', $$mdi:led-off$$,  $$mdi:bluetooth-off$$, '']
   - ['', '', $$mdi:android-studio$$, '', '', BT_CLR, {type: dead}, {type: dead}, BT_CLR, '', '', $$mdi:android-studio$$, '', '']
   - [{t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}]
+  Default: 
+  - [{t: GRAVE, h: ESC}, {t: Q, h: '1'}, {t: W, h: '2'}, {t: F, h: '3'}, {t: P, h: '4'}, {t: B, h: '5'}, {t: J, h: '6', type: dance1}, {t: L, h: '7'}, {t: U, h: '8', tl: ù}, {t: Y, h: '9'}, {t: COLON, h: SEMI}, $$mdi:backspace-outline$$]
+  - [Symbols, {t: A, tl: À, tr: A, h: LCTRL}, {t: R, h: LALT}, {t: S, h: LMETA}, {t: T, h: LSHIFT}, G, M, {t: N, h: RSHIFT}, {t: E, tl: É, h: RMETA}, {t: I, h: RALT}, {t: O, h: RCTRL}, $$mdi:format-quote-open$$]
+  - ['~', Z, X, {t: C, s: 'ç'}, D, V, {type: dead}, {type: dead}, K, H, {t: DOT, h: COMMA}, {t: '?', h: '!'}, {t: /, h: '\'}, SQT]
+  - [Numbers, TAB, SPACE, Media, Vim, Enter, $$material:refresh$$, {t: Azerty, s: GoTo}]
 combos:
-- p: [17, 18]
+- tk: [{t: T, h: LSHIFT}, {t: N, h: RSHIFT}]
   k: 'cap_word'
   l: [Default]
   w: 50
-- p: [40, 43]
-  k: Vim
+- tk: [W, F]
+  k: '<'
   l: [Default]
-- p: [15, 16]
-  k: '$$mdi:asterisk$$'
+- tk: [F, P]
+  k: '('
   l: [Default]
-- p: [13, 14]
+- tk: [P, B]
+  k: '_'
+  l: [Default]
+- tk: [J, L]
+  k: '!'
+  l: [Default]
+- tk: [L, U]
+  k: ']'
+  l: [Default]
+- tk: [U, Y]
+  k: '>'
+  l: [Default]
+- tk: [A, R]
   k: '$$mdi:equal$$'
   l: [Default]
-- p: [25, 26]
+- tk: [R, S]
+  k: '$$mdi:plus$$'
+  l: [Default]
+- tk: [S, T]
+  k: '('
+  l: [Default]
+- tk: [T, G]
+  k: '$$mdi:pound$$'
+  l: [Default]
+- tk: [M, N]
+  k: '$$mdi:at$$'
+  l: [Default]
+- tk: [N, E]
+  k: ')'
+  l: [Default]
+- tk: [E, I]
+  k: '\'
+  l: [Default]
+- tk: [I, O]
+  k: '|'
+  l: [Default]
+- tk: [Z, X]
   k: '$$mdi:minus$$'
   l: [Default]
-- p: [3, 8]
+- tk: [C, D]
+  k: '{'
+  l: [Default]
+- tk: [D, V]
+  k: '$$mdi:percent$$'
+  l: [Default]
+- tk: [K, H]
+  k: '$$mdi:chevron-up$$'
+  l: [Default]
+- tk: [H, DOT]
+  k: '}'
+  l: [Default]
+- tk: [F, U]
   a: top
   k: '$$mdi:currency-usd$$'
   l: [Default]
-- p: [3, 4]
-  k: '$$mdi:ampersand$$'
-  l: [Default]
-- p: [7, 8]
-  k: '$$mdi:chevron-up$$'
-  l: [Default]
-- p: [8, 9]
-  k: '$$mdi:at$$'
-  l: [Default]
-- p: [19, 20]
-  k: '$$mdi:percent-outline$$'
-  l: [Default]
-- p: [21, 22]
-  k: '$$mdi:pound$$'
-  l: [Default]
-- p: [35, 36]
-  k: '_'
-  l: [Default]
-- p: [33, 34]
+- tk: [g, o]
+  k: 'x cut'
+  l: [Vim]
+  w: 34
+  h: 28
+- tk: [o, u]
+  k: 'd delete'
+  l: [Vim]
+  w: 34
+  h: 28
+- tk: [i, a]
   k: 'v visual'
   l: [Vim]
-  w: 40
-  h: 30
-- p: [20, 21]
+  w: 34
+  h: 28
+- tk: [j, k]
   k: 'y Yank'
   l: [Vim]
-  w: 40
-  h: 30
-- p: [19, 20]
+  w: 34
+  h: 28
+- tk: [h, j]
   k: 'p Past'
   l: [Vim]
-  w: 40
-  h: 30
+  w: 34
+  h: 28
+- tk: [a, .]
+  k: ', ; prev/next'
+  l: [Vim]
+  w: 34
+  h: 28
   
   
