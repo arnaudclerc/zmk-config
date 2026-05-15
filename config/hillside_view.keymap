@@ -54,6 +54,7 @@
         dollar {
             bindings = <&kp DOLLAR>;
             key-positions = <3 8>;
+            layers = <0>;
         };
     };
 
