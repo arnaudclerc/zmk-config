@@ -198,35 +198,35 @@
         cut {
             timeout-ms = <50>;
             key-positions = <7 8>;  // g AND o
-            bindings =<&kp x>;
+            bindings =<&kp X>;
             layers = <VIM>;
         };
 
         delete {
             timeout-ms = <50>;
             key-positions = <8 9>;  // o AND u
-            bindings =<&kp d>;
+            bindings =<&kp D>;
             layers = <VIM>;
         };
 
         paste {
             timeout-ms = <50>;
             key-positions = <19 20>;  // h AND j
-            bindings =<&kp p>;
+            bindings =<&kp P>;
             layers = <VIM>;
         };
 
         yank {
             timeout-ms = <50>;
             key-positions = <20 21>;  // j AND k
-            bindings =<&kp y>;
+            bindings =<&kp Y>;
             layers = <VIM>;
         };
 
         visual {
             timeout-ms = <50>;
             key-positions = <31 32>;  // i AND a
-            bindings =<&kp v>;
+            bindings =<&kp V>;
             layers = <VIM>;
         };
 
