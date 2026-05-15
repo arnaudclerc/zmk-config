@@ -278,8 +278,8 @@
             display-name = "Default";
             bindings = <
     &ht 1 GRAVE    &ht N1 Q     &ht N2 W    &ht N3 F        &ht N4 P        &ht N5 B        &ht N6 J    &ht N7 L                &ht N8 U        &ht N9 Y            &ht COLON SEMI  &kp BSPC
-    &ht TAB        &kp A        &kp R       &ht LGUI S      &htb LSHIFT T   &kp G           &kp M       &htb LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
-    &ht TILDE      &kp Z        &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht FSLH BSLH   &kp SQT
+    &kp TAB        &kp A        &kp R       &ht LGUI S      &htb LSHIFT T   &kp G           &kp M       &htb LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
+    &kp TILDE      &kp Z        &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht FSLH BSLH   &kp SQT
                                                             &none                                       &none
                                 &sel_word   &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RS(LS(LEFT))      &ht RALT RS(LS(RIGHT))  &lq NUM DEL     &ht K_PASTE K_AGAIN &sel_line
             >;
