@@ -135,7 +135,7 @@
         at {
             timeout-ms = <50>;
             key-positions = <17 18>;  // M and N
-            bindings =<&kp AT_SIGN>;
+            bindings =<&kp AT>;
             layers = <DEF>;
         };
 
@@ -163,14 +163,14 @@
         lf_brace {
             timeout-ms = <50>;
             key-positions = <27 28>;  // C and D
-            bindings =<&kp LBRACE>;
+            bindings =<&kp LBRC>;
             layers = <DEF>;
         };
 
         percent {
             timeout-ms = <50>;
             key-positions = <28 29>;  // D and V
-            bindings =<&kp PERCENT>;
+            bindings =<&kp PRCNT>;
             layers = <DEF>;
         };
 
@@ -184,7 +184,7 @@
         rg_brace {
             timeout-ms = <50>;
             key-positions = <31 32>;  // H and DOT
-            bindings =<&kp RBRACE>;
+            bindings =<&kp RBRC>;
             layers = <DEF>;
         };
 
