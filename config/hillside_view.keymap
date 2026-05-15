@@ -11,8 +11,8 @@
 / {
     // Trackpad input listener with temp layer and layer-specific processors
     // - MOUSE layer activates during any trackpad movement (300ms timeout)
-    // - VIM layer: precise mode (slower movement)
-    // - SYM layer: scroll mode
+    // - NUM layer: precise mode (slower movement)
+    // - VIM layer: scroll mode
 
     tpad0_mmv_il {
         compatible = "zmk,input-listener";
@@ -20,13 +20,13 @@
         input-processors = <&zip_temp_layer MOUSE 300>;
 
         precise {
-            layers = <VIM>;
+            layers = <NUM>;
             process-next;
             input-processors = <&zip_xy_scaler 1 3>;
         };
 
         scroll {
-            layers = <SYM>;
+            layers = <VIM>;
             process-next;
             input-processors =
                 <&zip_xy_scaler 1 22>,
