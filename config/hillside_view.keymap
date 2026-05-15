@@ -58,6 +58,22 @@
         };
     };
 
+    macros {
+        sel_word: sel_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT) &kp LS(RIGHT)>;
+            label = "SEL_WORD";
+        };
+
+        sel_line: sel_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>;
+            label = "SEL_LINE";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
