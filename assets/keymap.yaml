@@ -94,48 +94,43 @@ draw_config:
         }
     }
     
-    
-    
     rect.dead {
       visibility : hidden ;
     }
-    text.hold {
+    text.shifted {
       fill: #8df;
-    }
-    text.magic {
-      fill: #af9;
     }
 layers:
   Default: 
-  - [{t: GRAVE, h: Numbers}, {t: Q, h: '1'}, {t: W, h: '2'}, {t: F, h: '3'}, {t: P, h: '4'}, {t: B, h: '5'}, {t: J, h: '6', type: dance1}, {t: L, h: '7'}, {t: U, h: '8', tl: ù}, {t: Y, h: '9'}, {t: COLON, h: SEMI}, $$mdi:backspace-outline$$]
-  - [Symbols, {t: A, tl: À, tr: A, h: LCTRL}, {t: R, h: LALT}, {t: S, h: LMETA}, {t: T, h: LSHIFT}, G, M, {t: N, h: RSHIFT}, {t: E, tl: É, h: RMETA}, {t: I, h: RALT}, {t: O, h: RCTRL}, $$mdi:format-quote-open$$]
-  - ['~', Z, X, {t: C, s: 'ç'}, D, V, {type: dead}, {type: dead}, K, H, {t: DOT, h: COMMA}, {t: '?', h: '!'}, {t: /, h: '\'}, SQT]
-  - [{t: Select Backward, h: ff}, {t: TAB, h: ff}, {t: SPACE, h: SUPER}, {t: Select Line, h: Media}, {t: Select Word, h: Vim}, Enter, $$material:refresh$$, {t: Select Forward, s: ToAzerty}]
-  Symbols:
-  - ['', '', '', 'LBRC', 'RBRC', '', '&', '#', '_', '@',  {t: v, type: trans},  {t: v, type: trans}]
-  - [{type: held}, '', '', 'LPAR', 'RPAR', '', '<', '>', '^', '$', '*', {t: v, type: trans}]
-  - [{t: v, type: trans}, '', '', 'LBKT', 'RBKT', '', {type: dead}, {type: dead}, '-', '+',  {t: v, type: trans},  {t: v, type: trans},  {t: v, type: trans},  {t: v, type: trans}]
-  - [{t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}]
+  - [{t: GRAVE, h: Numbers, s: '&sl'}, {t: Q, h: '1'}, {t: W, h: '2'}, {t: F, h: '3'}, {t: P, h: '4'}, {t: B, h: '5'}, {t: J, h: '6', type: dance1}, {t: L, h: '7'}, {t: U, h: '8'}, {t: Y, h: '9'}, {t: COLON, h: SEMI}, $$mdi:backspace-outline$$]
+  - [{t: TAB, h: Vim, s: '&sl'}, A, R, {t: S, h: LMETA}, {t: T, h: LSHIFT}, G, M, {t: N, h: RSHIFT}, {t: E, h: RMETA}, I, O, $$mdi:format-quote-open$$]
+  - [{t: '~', h: Media, s: '&sl'}, Z, X, C, D, V, {type: dead}, {type: dead}, K, H, {t: DOT, h: COMMA}, {t: '!', h: '?'}, {t: /, h: '\'}, SQT]
+  - [{t: Select Word, h: copy}, {t: BSPC, h: cut}, {t: SPACE, h: SUPER}, {t: Select Backward, h: LCTRL}, {t: Select Forward, h: ALT}, {t: Enter, h: Shift}, {t: $$material:refresh$$, h: paste}, {t: Select Line, s: '&To Gaming'}]
   Numbers:
-  - [{type: held}, '-', '+', {t: '7', h: F7}, {t: '8', h: F8}, {t: '9', h: F9}, '', HOME, {t: UP, s: $$mdi:arrow-collapse-up$$}, END, {t: v, type: trans}, {t: v, type: trans}]
-  - [ '', '/', '*', {t: '4', h: F4}, {t: '5', h: F5}, {t: '6', h: F6}, '', LEFT, {t: DOWN, h: $$mdi:arrow-collapse-down$$}, RIGHT, '', {t: v, type: trans}]
-  - [LALT, '', '', {t: '0', h: F10}, {t: '1', h: F1}, {t: '2', h: F2}, {type: dead}, {type: dead}, '', {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}]
-  - [{t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}]
+  - [{type: held}, '', '', {t: '7', h: F7}, {t: '8', h: F8}, {t: '9', h: F9}, '+', HOME, {t: UP, s: $$mdi:arrow-collapse-up$$}, END, {t: v, type: trans}, {t: v, type: trans}]
+  - [ '', '', '', {t: '4', h: F4}, {t: '5', h: F5}, {t: '6', h: F6}, '=', LEFT, {t: DOWN, h: $$mdi:arrow-collapse-down$$}, RIGHT, '*', {t: v, type: trans}]
+  - ['', '', '', {t: '0', h: F10}, {t: '1', h: F1}, {t: '2', h: F2}, {type: dead}, {type: dead}, '-', {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}]
+  - [{t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: lock layer, s: '&Tog'}]
   Vim:
   - ['', '', {t: b, s: before}, {t: e, s: end}, {t: w, s: word}, '', '', {t: g, s: go to}, {t: o, s: newline}, {t: u, s: undo}, '', '']
-  - ['LSHIFT', {t: q, s: record}, {t: n, s: next/prev}, {t: s, s: surround}, {t: r, s: replace}, '', '', {t: h, s: left}, {t: j, s: down}, {t: k, s: up}, {t: l, s: right}, '']
-  - ['LCTRL', '', {t: f, s: find}, {t: c, s: change}, {t: t, s: till}, '', {type: dead}, {type: dead}, '', {t: i, s: insert}, {t: a, s: append}, {t: ., s: repeat}, '', '']
-  - [{t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, lock layer, {type: held}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}]
+  - [{type: held}, {t: q, s: record}, {t: n, s: next/prev}, {t: s, s: surround}, {t: r, s: replace}, '', '', {t: h, s: left}, {t: j, s: down}, {t: k, s: up}, {t: l, s: right}, '']
+  - ['', '', {t: f, s: find}, {t: c, s: change}, {t: t, s: till}, '', {type: dead}, {type: dead}, '', {t: i, s: insert}, {t: a, s: append}, {t: ., s: repeat}, '', '']
+  - [{t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: lock layer, s: '&Tog'}]
   Media:
-  - ['', C_PREV, C_NEXT, '', '', $$material:volume_up$$, C_BRI_UP, '', VPN_UP, '', '', '']
-  - ['', C_PAUSE, C_PLAY, '', '', $$material:volume_down$$, C_BRI_DN, '', VPN_DN, '', '', '']
-  - ['', '', '', '', '', $$material:volume_off$$, {type: dead}, {type: dead}, '', '', '', '']
-  - ['', '', '', {t: $$mdi:microphone-off$$, s: mic}, '', {type: held}, {t: Adjust, s: GoTo}, '', {t: $$mdi:microphone-off$$, s: mic}, '']
+  - ['', C_PREV, C_NEXT, Prt copy, '', $$material:volume_up$$, C_BRI_UP, '', VPN_UP, '', '', '']
+  - ['', PAUSE PLAY, '', Prt Edit, '', $$material:volume_down$$, C_BRI_DN, '', VPN_DN, '', '', '']
+  - [{type: held}, '', '', Prt Window, '', $$material:volume_off$$, {type: dead}, {type: dead}, Audio Headset, {t: $$mdi:microphone-off$$, s: mic}, Audio Hdmi, '']
+  - ['', '', '', '', '', '', '', '', '', {t: Adjust, s: '&Tog'}]
   Adjust:
-  - ['', $$mdi:bluetooth-connect$$, $$mdi:led-on$$, '', BT_PRV, BT_NXT, Select USB, Select BLE, '', $$mdi:led-on$$, $$mdi:bluetooth-connect$$, '']
-  - ['', $$mdi:bluetooth-off$$, $$mdi:led-off$$, '', '', '', '', '', '', $$mdi:led-off$$,  $$mdi:bluetooth-off$$, '']
-  - ['', '', $$mdi:android-studio$$, '', '', BT_CLR, {type: dead}, {type: dead}, Boot Loader, '', '', $$mdi:android-studio$$, '', '']
-  - [{t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {type: held}, {type: held}, {t: Default, s: GoTo}, {t: Default, s: GoTo}, {t: Default, s: GoTo}]
+  - ['', BT 1, BT 2, BT 3, BT 4, BT CLR, Select USB, Select BLE, '', $$mdi:led-on$$, $$mdi:bluetooth-connect$$, '']
+  - ['', '', '', '', '', '', '', '', '', $$mdi:led-off$$,  $$mdi:bluetooth-off$$, '']
+  - ['', '', '', '', '', BT_CLR, {type: dead}, {type: dead}, Boot Loader, Reset, '', $$mdi:android-studio$$, '', '']
+  - ['', '', '', '', '', '', '', {t: Default, s: GoTo}]
+  Gaming: 
+  - ['', 'TAB', A, Z, E, R, '', '', '', '', '', '']
+  - ['', 'SHIFT', Q, S, D, F, '', '', '', '', '', '']
+  - ['', '', S, D, F, G, {type: dead}, {type: dead}, '', '', '', '', '', '']
+  - [G, T, Space, D, '', '', '', {t: '', s: '&To Default'}]
 combos:
 - tk: [{t: T, h: LSHIFT}, {t: N, h: RSHIFT}]
   k: 'cap_word'
@@ -148,13 +143,16 @@ combos:
   k: '['
   l: [Default]
 - tk: [P, B]
-  k: '_'
+  k: '|'
   l: [Default]
 - tk: [J, L]
-  k: '|'
+  k: '_'
   l: [Default]
 - tk: [L, U]
   k: ']'
+  l: [Default]
+- tk: [DOT, '!']
+  k: '&'
   l: [Default]
 - tk: [U, Y]
   k: '>'
