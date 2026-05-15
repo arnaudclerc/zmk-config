@@ -2,9 +2,8 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors/mouse_keys.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 
 #define MOUSE 4
 
@@ -12,8 +11,7 @@
     // Trackpad input listener with temp layer and layer-specific processors
     // - MOUSE layer activates during any trackpad movement (300ms timeout)
     // - NUM layer: precise mode (slower movement)
-    // - SYM layer: scroll mode
-
+    // - VIM layer: scroll mode
     tpad0_mmv_il {
         compatible = "zmk,input-listener";
         device = <&glidepoint_split>;
@@ -26,12 +24,11 @@
         };
 
         scroll {
-            layers = <SYM>;
+            layers = <VIM>;
             process-next;
-            input-processors =
-                <&zip_xy_scaler 1 22>,
-                <&zip_x_scaler 0 1>,
-                <&zip_xy_to_scroll_mapper>;
+            input-processors = <&zip_xy_scaler 1 22>,
+                               <&zip_x_scaler 0 1>,
+                               <&zip_xy_to_scroll_mapper>;
         };
     };
 
@@ -44,46 +41,6 @@
     &trans   &trans   &trans   &trans   &trans   &trans       &trans   &trans   &trans   &trans   &trans   &trans
                                          &trans                                            &trans
                      &trans   &trans   &trans   &mkp RCLK             &mkp LCLK &trans  &trans   &trans
-            >;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        dollar {
-            bindings = <&kp DOLLAR>;
-            key-positions = <3 8>;
-            layers = <0>;
-        };
-    };
-
-    macros {
-        sel_word: sel_word {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LEFT) &kp LS(RIGHT)>;
-            label = "SEL_WORD";
-        };
-
-        sel_line: sel_line {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp HOME &kp LS(END)>;
-            label = "SEL_LINE";
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        layer_0 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans                                      &trans
-        &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans
             >;
         };
     };
