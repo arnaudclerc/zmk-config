@@ -6,13 +6,11 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEF 0
-#define NUM 1
-#define VIM 2
-#define MEDIA 3
-#define ADJ 4
-#define GAME 5
-#define QUICK_TAP_MS 125
-#define TAPPING_TERM_MS 200
+#define SYM 1
+#define NUM 2
+#define ADJ 3
+#define QUICK_TAP_MS 175
+#define TAPPING_TERM_MS 150
 
 &sk {
     release-after-ms = <600>;
@@ -24,24 +22,8 @@
         compatible = "zmk,conditional-layers";
 
         tri_layer {
-            if-layers = <DEF NUM>;
+            if-layers = <SYM NUM>;
             then-layer = <ADJ>;
-        };
-    };
-
-    macros {
-        sel_word: sel_word {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LEFT) &kp LS(RIGHT)>;
-            label = "SEL_WORD";
-        };
-
-        sel_line: sel_line {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp HOME &kp LS(END)>;
-            label = "SEL_LINE";
         };
     };
 
@@ -50,191 +32,8 @@
 
         caps {
             timeout-ms = <50>;
-            key-positions = <16 19>;  // T and N (home row Caps Word)
+            key-positions = <17 18>;  // G and H (home row shifts)
             bindings = <&caps_word>;
-            layers = <DEF>;
-        };
-
-        dollar {
-            timeout-ms = <50>;
-            key-positions = <3 8>;  // F and U
-            bindings =<&kp DOLLAR>;
-            layers = <DEF>;
-        };
-
-        lesser {
-            timeout-ms = <50>;
-            key-positions = <2 3>;  // W and F
-            bindings =<&kp LESS_THAN>;
-            layers = <DEF>;
-        };
-
-        lft_bracket {
-            timeout-ms = <50>;
-            key-positions = <3 4>;  // F and P
-            bindings =<&kp LBKT>;
-            layers = <DEF>;
-        };
-
-        pipe {
-            timeout-ms = <50>;
-            key-positions = <4 5>;  // P and B
-            bindings =<&kp PIPE>;
-            layers = <DEF>;
-        };
-
-        underscore {
-            timeout-ms = <50>;
-            key-positions = <6 7>;  // J AND L
-            bindings =<&kp UNDERSCORE>;
-            layers = <DEF>;
-        };
-
-        rg_bracket {
-            timeout-ms = <50>;
-            key-positions = <7 8>;  // L AND U
-            bindings =<&kp RBKT>;
-            layers = <DEF>;
-        };
-
-        greater {
-            timeout-ms = <50>;
-            key-positions = <8 9>;  // U and Y
-            bindings =<&kp GREATER_THAN>;
-            layers = <DEF>;
-        };
-
-        equal {
-            timeout-ms = <50>;
-            key-positions = <13 14>;  // A and R
-            bindings =<&kp EQUAL>;
-            layers = <DEF>;
-        };
-
-        plus {
-            timeout-ms = <50>;
-            key-positions = <14 15>;  // R and S
-            bindings =<&kp PLUS>;
-            layers = <DEF>;
-        };
-
-        lf_parenthesis {
-            timeout-ms = <50>;
-            key-positions = <15 16>;  // S and T
-            bindings =<&kp LPAR>;
-            layers = <DEF>;
-        };
-
-        hash {
-            timeout-ms = <50>;
-            key-positions = <16 17>;  // T and G
-            bindings =<&kp HASH>;
-            layers = <DEF>;
-        };
-
-        at {
-            timeout-ms = <50>;
-            key-positions = <17 18>;  // M and N
-            bindings =<&kp AT>;
-            layers = <DEF>;
-        };
-
-        rg_parenthesis {
-            timeout-ms = <50>;
-            key-positions = <18 19>;  // N and E
-            bindings =<&kp RPAR>;
-            layers = <DEF>;
-        };
-
-        minus {
-            timeout-ms = <50>;
-            key-positions = <19 20>;  // E and I
-            bindings =<&kp MINUS>;
-            layers = <DEF>;
-        };
-
-        asterisk {
-            timeout-ms = <50>;
-            key-positions = <21 21>;  // I and O
-            bindings =<&kp ASTERISK>;
-            layers = <DEF>;
-        };
-
-        lf_brace {
-            timeout-ms = <50>;
-            key-positions = <27 28>;  // C and D
-            bindings =<&kp LBRC>;
-            layers = <DEF>;
-        };
-
-        percent {
-            timeout-ms = <50>;
-            key-positions = <28 29>;  // D and V
-            bindings =<&kp PRCNT>;
-            layers = <DEF>;
-        };
-
-        caret {
-            timeout-ms = <50>;
-            key-positions = <30 31>;  // K and H
-            bindings =<&kp CARET>;
-            layers = <DEF>;
-        };
-
-        rg_brace {
-            timeout-ms = <50>;
-            key-positions = <31 32>;  // H and DOT
-            bindings =<&kp RBRC>;
-            layers = <DEF>;
-        };
-
-        ampersand {
-            timeout-ms = <50>;
-            key-positions = <32 33>;  // DOT and EXCLAM
-            bindings =<&kp AMPERSAND>;
-            layers = <DEF>;
-        };
-
-        cut {
-            timeout-ms = <50>;
-            key-positions = <7 8>;  // g AND o
-            bindings =<&kp X>;
-            layers = <VIM>;
-        };
-
-        delete {
-            timeout-ms = <50>;
-            key-positions = <8 9>;  // o AND u
-            bindings =<&kp D>;
-            layers = <VIM>;
-        };
-
-        paste {
-            timeout-ms = <50>;
-            key-positions = <19 20>;  // h AND j
-            bindings =<&kp P>;
-            layers = <VIM>;
-        };
-
-        yank {
-            timeout-ms = <50>;
-            key-positions = <20 21>;  // j AND k
-            bindings =<&kp Y>;
-            layers = <VIM>;
-        };
-
-        visual {
-            timeout-ms = <50>;
-            key-positions = <31 32>;  // i AND a
-            bindings =<&kp V>;
-            layers = <VIM>;
-        };
-
-        next-prev {
-            timeout-ms = <50>;
-            key-positions = <32 33>;  // a AND DOT
-            bindings =<&kp COMMA>;
-            layers = <VIM>;
         };
     };
 
@@ -252,10 +51,9 @@
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold Tap";
-            display-name = "Hold-Tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <TAPPING_TERM_MS>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <QUICK_TAP_MS>;
             bindings = <&kp>, <&kp>;
         };
@@ -265,7 +63,7 @@
             label = "Hold Tap Balanced";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <TAPPING_TERM_MS>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <QUICK_TAP_MS>;
             bindings = <&kp>, <&kp>;
         };
@@ -277,11 +75,11 @@
         default_layer {
             display-name = "Default";
             bindings = <
-    &ht 1 GRAVE    &ht N1 Q     &ht N2 W    &ht N3 F        &ht N4 P        &ht N5 B        &ht N6 J    &ht N7 L                &ht N8 U        &ht N9 Y            &ht COLON SEMI  &kp BSPC
-    &ht TAB        &kp A        &kp R       &ht LGUI S      &htb LSHIFT T   &kp G           &kp M       &htb LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
-    &ht TILDE      &kp Z        &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht FSLH BSLH   &kp SQT
-                                                            &none                                       &none
-                                &sel_word   &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RS(LS(LEFT))      &ht RALT RS(LS(RIGHT))  &lq NUM DEL     &ht K_PASTE K_AGAIN &sel_line
+    &ht GRAVE TAB  &ht N1 Q     &ht N2 W     &ht N3 E     &ht N4 R        &ht N5 T        &ht N6 Y    &ht N7 U        &ht N8 I     &ht N9 O     &ht N0 P        &kp PIPE
+    &kp ESC        &ht LCTRL A  &ht LALT S   &ht LGUI D   &htb LSHIFT F   &kp G           &kp H       &htb LSHIFT J   &ht LGUI K   &ht LALT L   &ht LCTRL SEMI  &kp SQT
+    &sk LSHFT      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp N       &kp M           &kp COMMA    &kp DOT      &kp FSLH        &sk RSHFT
+                                                           &kp END                                                      &kp C_PP
+                                 &kp LGUI     &kp SPACE    &lq SYM BSPC    &sk LEFT_ALT                 &sk RIGHT_ALT   &lq NUM DEL  &kp RET      &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -293,7 +91,7 @@
     &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
     &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
     &trans   &trans     &trans     &trans     &trans     &trans          &kp UNDER   &kp PLUS   &kp LBRC           &kp RBRC   &kp PIPE   &kp TILDE
-                                                        &none                                       &none
+                                               &kp END                                                               &kp C_PP
                         &trans     &trans     &trans     &trans                        &trans     &trans             &trans     &trans
             >;
 
