@@ -5,17 +5,39 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
+// Layer definitions
 #define DEF 0
 #define NUM 1
 #define VIM 2
 #define MEDIA 3
 #define ADJ 4
 #define GAME 5
-#define QUICK_TAP_MS 125
-#define TAPPING_TERM_MS 200
+
+// MS definitions
+#define COMBO_TERM 30
+#define TAPPING_TERM 250
+#define QUICK_TAP_TERM 175
+#define ADAPTIVE_KEY_TIMEOUT 2000
+
+&mt {
+    tapping-term-ms = <TAPPING_TERM>;
+    flavor = "tap-preferred";
+    quick-tap-ms = <QUICK_TAP_TERM>;
+};
+
+&lt {
+    tapping-term-ms = <TAPPING_TERM>;
+    flavor = "tap-preferred";
+    quick-tap-ms = <QUICK_TAP_TERM>;
+};
+
+&sl {
+    release-after-ms = <1000>;
+    quick-release;
+};
 
 &sk {
-    release-after-ms = <600>;
+    release-after-ms = <1500>;
     quick-release;
 };
 
@@ -33,14 +55,14 @@
         sel_word: sel_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LEFT) &kp LS(RIGHT)>;
+            bindings = <&kp LC(LEFT) &kp LS(LC(RIGHT))>;
             label = "SEL_WORD";
         };
 
         sel_line: sel_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp HOME &kp LS(END)>;
+            bindings = <&kp HOME &kp LS(LC(END))>;
             label = "SEL_LINE";
         };
     };
@@ -239,14 +261,49 @@
     };
 
     behaviors {
-        lq: layer_toggle_quick {
+    
+    // layer toggles
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer On";
+            toggle-mode = "on";
+        };
+
+        tog_off: toggle_layer_off_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
+        };
+
+    // Layer taps
+        hlt: layer-tap-with-hold-preferred {
             compatible = "zmk,behavior-hold-tap";
-            label = "Layer Toggle Quick";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <TAPPING_TERM_MS>;
-            quick-tap-ms = <QUICK_TAP_MS>;
+            tapping-term-ms = <TAPPING_TERM>;
+            flavor = "hold-preferred";
+            quick-tap-ms = <QUICK_TAP_TERM>;
             bindings = <&mo>, <&kp>;
+        };
+
+        hls: layer-tap-with-stick-layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <TAPPING_TERM>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <QUICK_TAP_TERM>;
+            bindings = <&mo>, <&sl>;
+        };
+
+    // Hold-tap behaviors
+        hsk: mod-tap-with-stick-key {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <TAPPING_TERM>;
+            flavor = "hold-preferred";
+            quick-tap-ms = <QUICK_TAP_TERM>;
+            bindings = <&kp>, <&sk>;
         };
 
         ht: hold_tap {
@@ -255,8 +312,8 @@
             display-name = "Hold-Tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <TAPPING_TERM_MS>;
-            quick-tap-ms = <QUICK_TAP_MS>;
+            tapping-term-ms = <TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP_TERM>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -265,30 +322,58 @@
             label = "Hold Tap Balanced";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <TAPPING_TERM_MS>;
-            quick-tap-ms = <QUICK_TAP_MS>;
+            tapping-term-ms = <TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP_TERM>;
             bindings = <&kp>, <&kp>;
         };
+
+    // tap Dances
+        td_l2: tap_dance_l2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hls NUM NUM>, <&kp TAB>;
+        };
+
+        td_l3: tap_dance_l3 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hls MEDIA MEDIA>, <&kp TILDE>;
+        };
+    
+    // Combo hold
+        ht_copy: hold_tap_copy {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Hold Tap";
+            display-name = "Hold-Tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP_TERM>;
+            bindings = <&sel_word>, <&kp>;
+        };
+
     };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Default";
+            display-name = "Colemak";
             bindings = <
-    &ht 1 GRAVE    &ht N1 Q     &ht N2 W    &ht N3 F        &ht N4 P        &ht N5 B        &ht N6 J    &ht N7 L                &ht N8 U        &ht N9 Y            &ht COLON SEMI  &kp BSPC
-    &kp TAB        &kp A        &kp R       &ht LGUI S      &htb LSHIFT T   &kp G           &kp M       &htb LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
-    &kp TILDE      &kp Z        &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht FSLH BSLH   &kp SQT
+    &hls 1 1    &ht N1 Q     &ht N2 W   &ht N3 F        &ht N4 P        &ht N5 B        &ht N6 J    &ht N7 L                &ht N8 U        &ht N9 Y            &ht COLON SEMI  &gresc
+    &td_l2      &kp A        &kp R      &ht LSHIFT S    &htb LSHIFT T   &kp G           &kp M       &hsk LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
+    &td_l3      &kp Z        &kp X      &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht FSLH BSLH   &kp SQT
                                                             &none                                       &none
-                                &sel_word   &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RS(LS(LEFT))      &ht RALT RS(LS(RIGHT))  &lq NUM DEL     &ht K_PASTE K_AGAIN &sel_line
+                            &ht_copy K_COPY   &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RCTRL(LS(LEFT))      &ht RALT RCTRL(LS(RIGHT))  &hlt NUM DEL     &ht K_PASTE K_AGAIN &sel_line
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        sym_layer {
-            display-name = "Symbols";
+        num_layer {
+            display-name = "Num or Nav";
             bindings = <
     &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
     &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
@@ -300,31 +385,30 @@
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
         };
 
-        num_layer {
-            display-name = "Numbers";
+        vim_layer {
+            display-name = "Vim";
             bindings = <
-    &kp TAB  &ht F1 N1    &ht F2 N2    &ht F3 N3    &ht F4 N4    &ht F5 N5        &ht F6 N6  &ht F7 N7  &ht F8 N8  &ht F9 N9   &ht F10 N0    &trans
-    &trans   &trans       &trans       &trans       &trans       &trans           &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT   &trans        &trans
-    &trans   &trans       &trans       &trans       &trans       &trans           &kp HOME   &kp PG_DN  &kp PG_UP  &kp END     &trans        &trans
-                                                     &trans                                                          &trans
-                          &trans       &trans       &trans       &trans                        &trans     &trans     &trans      &trans
+    &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
+    &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
+    &trans   &trans     &trans     &trans     &trans     &trans          &kp UNDER   &kp PLUS   &kp LBRC           &kp RBRC   &kp PIPE   &kp TILDE
+                                                        &none                                       &none
+                        &trans     &trans     &trans     &trans                        &trans     &trans             &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp HOME END &inc_dec_kp C_NEXT C_PREV>;
+            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
         };
 
-        adj_layer {
-            display-name = "Adjust";
+        media_layer {
+            display-name = "Media";
             bindings = <
-    &bootloader   &trans         &trans         &trans         &trans         &trans             &out OUT_TOG     &trans   &trans     &trans         &trans       &bootloader
-    &sys_reset    &trans         &trans         &trans         &trans         &trans             &studio_unlock   &trans   &trans     &trans         &trans       &sys_reset
-    &bt BT_CLR    &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp C_PREV       &kp C_PP &kp C_NEXT &kp C_VOL_UP   &kp C_MUTE   &kp C_VOL_DN
-                                                                 &trans                                                      &trans
-                                  &ext_power EP_TOG &trans      &trans         &trans                               &trans   &trans     &trans         &trans
+    &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
+    &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
+    &trans   &trans     &trans     &trans     &trans     &trans          &kp UNDER   &kp PLUS   &kp LBRC           &kp RBRC   &kp PIPE   &kp TILDE
+                                                        &none                                       &none
+                        &trans     &trans     &trans     &trans                        &trans     &trans             &trans     &trans
             >;
 
-            // F15 and F14 are brightness controls for macOS
-            sensor-bindings = <&inc_dec_kp F15 F14 &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
         };
     };
 };
