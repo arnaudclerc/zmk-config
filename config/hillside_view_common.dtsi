@@ -53,8 +53,8 @@
 
     macros {
         sel_word: sel_word {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
             bindings = <&kp LC(LEFT) &kp LS(LC(RIGHT))>;
             label = "SEL_WORD";
         };

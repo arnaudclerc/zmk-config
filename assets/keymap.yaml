@@ -102,7 +102,7 @@ draw_config:
     }
 layers:
   Default: 
-  - [{t: GRAVE, h: Numbers, s: '&sl'}, {t: Q, h: '1'}, {t: W, h: '2'}, {t: F, h: '3'}, {t: P, h: '4'}, {t: B, h: '5'}, {t: J, h: '6', type: dance1}, {t: L, h: '7'}, {t: U, h: '8'}, {t: Y, h: '9'}, {t: COLON, h: SEMI}, $$mdi:backspace-outline$$]
+  - [{t: '&sl', h: Numbers}, {t: Q, h: '1'}, {t: W, h: '2'}, {t: F, h: '3'}, {t: P, h: '4'}, {t: B, h: '5'}, {t: J, h: '6', type: dance1}, {t: L, h: '7'}, {t: U, h: '8'}, {t: Y, h: '9'}, {t: COLON, h: SEMI}, GRAVE]
   - [{t: TAB, h: Vim, s: '&sl'}, A, R, {t: S, h: LMETA}, {t: T, h: LSHIFT}, G, M, {t: N, h: RSHIFT}, {t: E, h: RMETA}, I, O, $$mdi:format-quote-open$$]
   - [{t: '~', h: Media, s: '&sl'}, Z, X, C, D, V, {type: dead}, {type: dead}, K, H, {t: DOT, h: COMMA}, {t: '!', h: '?'}, {t: /, h: '\'}, SQT]
   - [{t: Select Word, h: copy}, {t: BSPC, h: cut}, {t: SPACE, h: SUPER}, {t: Select Backward, h: LCTRL}, {t: Select Forward, h: ALT}, {t: Enter, h: Shift}, {t: $$material:refresh$$, h: paste}, {t: Select Line, s: '&To Gaming'}]
