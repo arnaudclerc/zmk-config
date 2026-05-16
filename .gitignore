@@ -2,3 +2,4 @@ config/_boards
 modules/
 .envrc
 firmware
+Pip*
