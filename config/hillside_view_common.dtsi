@@ -53,7 +53,7 @@
 
     macros {
         sel_word: sel_word {
-            compatible = "zmk,behavior-macro-one-param";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <1>;
             bindings = <&kp LC(LEFT) &kp LS(LC(RIGHT))>;
             label = "SEL_WORD";
@@ -366,7 +366,7 @@
     &td_l2      &kp A        &kp R      &ht LSHIFT S    &htb LSHIFT T   &kp G           &kp M       &hsk LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
     &td_l3      &kp Z        &kp X      &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht FSLH BSLH   &kp SQT
                                                             &none                                       &none
-                            &ht_copy 0 K_COPY &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RCTRL(LS(LEFT))      &ht RALT RCTRL(LS(RIGHT))  &hlt NUM DEL     &ht K_PASTE K_AGAIN &sel_line
+                            &ht_copy 0 K_COPY &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RC(LS(LEFT))         &ht RALT RC(LS(RIGHT))     &hlt NUM DEL     &ht K_PASTE K_AGAIN &sel_line
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
