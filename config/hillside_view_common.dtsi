@@ -381,7 +381,7 @@
             display-name = "Num or Nav";
             bindings = <
     &none  &none  &none             &ht N7 F7   &ht N8 F8   &ht N9 F9       &kp PLUS    &kp HOME    &ht PG_UP UP    &kp END     &trans  &trans
-    &none  &none  &none             &ht N4 F4   &ht N5 F5   &ht N6 F6       &kp EQUAL   &kp LEFT    &kp PG_DN DOWN  &kp RIGHT   &trans  &trans
+    &none  &none  &none             &ht N4 F4   &ht N5 F5   &ht N6 F6       &kp EQUAL   &kp LEFT    &ht PG_DN DOWN  &kp RIGHT   &trans  &trans
     &none  &none  &ht N0 F10        &ht N1 F1   &ht N2 F2   &ht N3 F3       &kp MINUS   &trans      &trans          &trans      &trans  &trans
                                                 &none                                   &none
                     &tog_off NUM    &trans      &trans      &trans          &trans      &trans      &trans          &tog_on NUM
@@ -407,8 +407,8 @@
             display-name = "Media";
             bindings = <
     &none   &kp C_PREV  &kp C_NEXT      &kp PSCRN   &none   &kp C_VOL_UP    &kp C_BRI_INC   &none   &kp ASTERISK    &none    &none   &none
-    &none   &kp C_PP    &none           &none       &none   &kp C_VOL_DN       &kp C_BRI_DEC   &none   &kp LBKT        &none    &none   &none
-    &none   &none       &none           &none       &none   &kp C_MUTE         &kp UNDER       &none   &kp LBRC        &none    &none   &none
+    &none   &kp C_PP    &none           &none       &none   &kp C_VOL_DN    &kp C_BRI_DEC   &none   &kp LBKT        &none    &none   &none
+    &none   &none       &none           &none       &none   &kp C_MUTE      &kp UNDER       &none   &kp LBRC        &none    &none   &none
                                                     &none                                   &none
                         &tog_off MEDIA  &none       &none   &none           &none           &none   &none           &tog_on MEDIA
             >;
