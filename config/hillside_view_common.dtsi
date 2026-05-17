@@ -30,7 +30,7 @@
 };
 
 &sl {
-    release-after-ms = <1000>;
+    release-after-ms = <1500>;
     quick-release;
 };
 
@@ -311,17 +311,6 @@
             bindings = <&kp>, <&sk>;
         };
 
-        ht: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Hold Tap";
-            display-name = "Hold-Tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <TAPPING_TERM>;
-            quick-tap-ms = <QUICK_TAP_TERM>;
-            bindings = <&kp>, <&kp>;
-        };
-
         htb: hold_tap_balanced {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold Tap Balanced";
@@ -367,11 +356,11 @@
         default_layer {
             display-name = "Colemak";
             bindings = <
-    &hls NUM NUM    &ht N1 Q    &ht N2 W    &ht N3 F        &ht N4 P        &ht N5 B        &ht N6 J    &ht N7 L                &ht N8 U        &ht N9 Y            &ht COLON SEMI  &gresc
-    &td_l2          &kp A       &kp R       &ht LSHIFT S    &htb LSHIFT T   &kp G           &kp M       &hsk LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
-    &td_l3          &bootloader &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht BSLH FSLH   &bootloader
+    &hls NUM NUM    &htb N1 Q   &htb N2 W   &htb N3 F       &htb N4 P       &htb N5 B       &htb N6 J   &htb N7 L               &htb N8 U       &htb N9 Y          &htb SEMI COLON  &gresc
+    &td_l2          &kp A       &kp R       &htb LSHIFT S   &htb LSHIFT T   &kp G           &kp M       &hsk LSHIFT N           &htb LGUI E     &kp I              &kp O           &kp DQT
+    &td_l3          &bootloader &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &bootloader
                                                             &none                                       &none
-                    &htcp 0 K_COPY &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RC(LS(LEFT))         &ht RALT RC(LS(RIGHT))     &hlt NUM DEL     &ht K_PASTE K_AGAIN &sel_line
+    &htcp 0 C_AC_COPY           &htb C_AC_CUT BSPC          &htb LGUI SPACE &htb LCTRL RC(LS(LEFT))     &htb RALT RC(LS(RIGHT)) &hlt NUM DEL     &htb C_AC_PASTE K_AGAIN &kp A
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -380,9 +369,9 @@
         num_layer {
             display-name = "Num or Nav";
             bindings = <
-    &none  &none  &none             &ht N7 F7   &ht N8 F8   &ht N9 F9       &kp PLUS    &kp HOME    &ht PG_UP UP    &kp END     &trans  &trans
-    &none  &none  &none             &ht N4 F4   &ht N5 F5   &ht N6 F6       &kp EQUAL   &kp LEFT    &ht PG_DN DOWN  &kp RIGHT   &trans  &trans
-    &none  &none  &ht N0 F10        &ht N1 F1   &ht N2 F2   &ht N3 F3       &kp MINUS   &trans      &trans          &trans      &trans  &trans
+    &none  &none  &none             &htb F7 N7   &htb F8 N8   &htb F9 N9       &kp PLUS    &kp HOME    &htb PG_UP UP    &kp END     &trans  &trans
+    &none  &none  &none             &htb F4 N4   &htb F5 N5   &htb F6 N6       &kp EQUAL   &kp LEFT    &htb PG_DN DOWN  &kp RIGHT   &trans  &trans
+    &none  &none  &htb F10 N0        &htb F1 N1   &htb F2 N2   &htb F3 N3       &kp MINUS   &trans      &trans          &trans      &trans  &trans
                                                 &none                                   &none
                     &tog_off NUM    &trans      &trans      &trans          &trans      &trans      &trans          &tog_on NUM
             >;
