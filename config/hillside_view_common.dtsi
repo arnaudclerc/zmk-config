@@ -161,28 +161,28 @@
 
         at {
             timeout-ms = <50>;
-            key-positions = <17 18>;  // M and N
+            key-positions = <18 19>;  // M and N
             bindings =<&kp AT>;
             layers = <DEF>;
         };
 
         rg_parenthesis {
             timeout-ms = <50>;
-            key-positions = <18 19>;  // N and E
+            key-positions = <19 20>;  // N and E
             bindings =<&kp RPAR>;
             layers = <DEF>;
         };
 
         minus {
             timeout-ms = <50>;
-            key-positions = <19 20>;  // E and I
+            key-positions = <20 21>;  // E and I
             bindings =<&kp MINUS>;
             layers = <DEF>;
         };
 
         asterisk {
             timeout-ms = <50>;
-            key-positions = <21 21>;  // I and O
+            key-positions = <21 22>;  // I and O
             bindings =<&kp ASTERISK>;
             layers = <DEF>;
         };
