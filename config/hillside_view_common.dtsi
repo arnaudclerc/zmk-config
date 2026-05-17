@@ -408,7 +408,7 @@
             bindings = <
     &none   &kp C_PREV  &kp C_NEXT      &kp PSCRN   &none   &kp C_VOL_UP    &kp C_BRI_INC   &none   &kp ASTERISK    &none    &none   &none
     &none   &kp C_PP    &none           &none       &none   &kp C_VOL_DN       &kp C_BRI_DEC   &none   &kp LBKT        &none    &none   &none
-    &none   &none       &none           &none       &none   &C_MUTE         &kp UNDER       &none   &kp LBRC        &none    &none   &none
+    &none   &none       &none           &none       &none   &kp C_MUTE         &kp UNDER       &none   &kp LBRC        &none    &none   &none
                                                     &none                                   &none
                         &tog_off MEDIA  &none       &none   &none           &none           &none   &none           &tog_on MEDIA
             >;
