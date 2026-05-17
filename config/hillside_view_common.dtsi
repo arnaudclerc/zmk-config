@@ -21,13 +21,11 @@
 
 &mt {
     tapping-term-ms = <TAPPING_TERM>;
-    flavor = "tap-preferred";
     quick-tap-ms = <QUICK_TAP_TERM>;
 };
 
 &lt {
     tapping-term-ms = <TAPPING_TERM>;
-    flavor = "tap-preferred";
     quick-tap-ms = <QUICK_TAP_TERM>;
 };
 
@@ -47,7 +45,7 @@
 
         tri_layer {
             if-layers = <DEF NUM>;
-            then-layer = <ADJ>;
+            then-layer = <VIM>;
         };
     };
 
@@ -69,6 +67,13 @@
 
     combos {
         compatible = "zmk,combos";
+
+        bootloader {
+            timeout-ms = <50>;
+            key-positions = <24 35>;  // TILDE and SQT
+            bindings = <&bootloader>;
+            layers = <DEF>;
+        };
 
         caps {
             timeout-ms = <50>;
@@ -362,11 +367,11 @@
         default_layer {
             display-name = "Colemak";
             bindings = <
-    &hls 1 1    &ht N1 Q     &ht N2 W   &ht N3 F        &ht N4 P        &ht N5 B        &ht N6 J    &ht N7 L                &ht N8 U        &ht N9 Y            &ht COLON SEMI  &gresc
-    &td_l2      &kp A        &kp R      &ht LSHIFT S    &htb LSHIFT T   &kp G           &kp M       &hsk LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
-    &td_l3      &kp Z        &kp X      &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht FSLH BSLH   &kp SQT
+    &hls NUM NUM    &ht N1 Q    &ht N2 W    &ht N3 F        &ht N4 P        &ht N5 B        &ht N6 J    &ht N7 L                &ht N8 U        &ht N9 Y            &ht COLON SEMI  &gresc
+    &td_l2          &kp A       &kp R       &ht LSHIFT S    &htb LSHIFT T   &kp G           &kp M       &hsk LSHIFT N           &ht LGUI E      &kp I               &kp O           &kp DQT
+    &td_l3          &bootloader &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &ht DOT COMMA   &ht QMARK EXCL      &ht BSLH FSLH   &bootloader
                                                             &none                                       &none
-                            &htcp 0 K_COPY &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RC(LS(LEFT))         &ht RALT RC(LS(RIGHT))     &hlt NUM DEL     &ht K_PASTE K_AGAIN &sel_line
+                    &htcp 0 K_COPY &ht K_CUT BSPC  &ht LGUI SPACE  &ht LCTRL RC(LS(LEFT))         &ht RALT RC(LS(RIGHT))     &hlt NUM DEL     &ht K_PASTE K_AGAIN &sel_line
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -375,11 +380,11 @@
         num_layer {
             display-name = "Num or Nav";
             bindings = <
-    &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
-    &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
-    &trans   &trans     &trans     &trans     &trans     &trans          &kp UNDER   &kp PLUS   &kp LBRC           &kp RBRC   &kp PIPE   &kp TILDE
-                                                        &none                                       &none
-                        &trans     &trans     &trans     &trans                        &trans     &trans             &trans     &trans
+    &none  &none  &none             &ht N7 F7   &ht N8 F8   &ht N9 F9       &kp PLUS    &kp HOME    &ht PG_UP UP    &kp END     &trans  &trans
+    &none  &none  &none             &ht N4 F4   &ht N5 F5   &ht N6 F6       &kp EQUAL   &kp LEFT    &kp PG_DN DOWN  &kp RIGHT   &trans  &trans
+    &none  &none  &ht N0 F10        &ht N1 F1   &ht N2 F2   &ht N3 F3       &kp MINUS   &trans      &trans          &trans      &trans  &trans
+                                                &none                                   &none
+                    &tog_off NUM    &trans      &trans      &trans          &trans      &trans      &trans          &tog_on NUM
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
@@ -388,11 +393,11 @@
         vim_layer {
             display-name = "Vim";
             bindings = <
-    &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
-    &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
-    &trans   &trans     &trans     &trans     &trans     &trans          &kp UNDER   &kp PLUS   &kp LBRC           &kp RBRC   &kp PIPE   &kp TILDE
-                                                        &none                                       &none
-                        &trans     &trans     &trans     &trans                        &trans     &trans             &trans     &trans
+    &none  &none  &kp B   &kp E   &kp W   &none          &none  &kp G   &kp O   &kp U   &none  &none
+    &none  &kp Q   &kp N   &kp S   &kp R   &none          &none  &kp H   &kp J   &kp K   &kp L   &none
+    &none  &none  &kp F   &kp C   &kp T   &none          &none  &kp I   &kp A   &kp DOT &none  &none
+                                    &none                           &none
+                    &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
@@ -401,11 +406,11 @@
         media_layer {
             display-name = "Media";
             bindings = <
-    &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
-    &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
-    &trans   &trans     &trans     &trans     &trans     &trans          &kp UNDER   &kp PLUS   &kp LBRC           &kp RBRC   &kp PIPE   &kp TILDE
-                                                        &none                                       &none
-                        &trans     &trans     &trans     &trans                        &trans     &trans             &trans     &trans
+    &none   &kp C_PREV  &kp C_NEXT      &kp PSCRN   &none   &kp C_VOL_UP    &kp C_BRI_INC   &none   &kp ASTERISK    &none    &none   &none
+    &none   &kp C_PP    &none           &none       &none   &C_VOL_DN       &kp C_BRI_DEC   &none   &kp LBKT        &none    &none   &none
+    &none   &none       &none           &none       &none   &C_MUTE         &kp UNDER       &none   &kp LBRC        &none    &none   &none
+                                                    &none                                   &none
+                        &tog_off MEDIA  &none       &none   &none           &none           &none   &none           &tog_on MEDIA
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
