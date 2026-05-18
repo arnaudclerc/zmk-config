@@ -398,5 +398,18 @@
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
         };
+
+        adjust_layer {
+            display-name = "Adjust";
+            bindings = <
+    &none       &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &none           &out OUT_USB    &out OUT_BLE    &none   &rgb_ug RGB_ON  &none   &none
+    &none       &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &none           &none           &none           &none           &none           &none   &rgb_ug RGB_OFF &none   &none
+    &bootloader &none           &none           &none           &none           &bt BT_CLR      &kp UNDER       &none           &none   &studio_unlock  &none   &bootloader
+                                                                &none                                           &none
+                &tog_off ADJ    &none           &none           &none           &none           &none           &none           &tog_on ADJ
+            >;
+
+            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
+        };
     };
 };
