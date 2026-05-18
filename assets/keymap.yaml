@@ -122,9 +122,9 @@ layers:
   - [{type: held}, '', '', Prt Window, '', $$material:volume_off$$, {type: dead}, {type: dead}, Audio Headset, {t: $$mdi:microphone-off$$, s: mic}, Audio Hdmi, '']
   - ['', '', '', '', '', '', '', '', '', {t: Adjust, s: '&Tog'}]
   Adjust:
-  - ['', BT 1, BT 2, BT 3, BT 4, BT CLR, Select USB, Select BLE, '', $$mdi:led-on$$, $$mdi:bluetooth-connect$$, '']
-  - ['', '', '', '', '', '', '', '', '', $$mdi:led-off$$,  $$mdi:bluetooth-off$$, '']
-  - ['', '', '', '', '', BT_CLR, {type: dead}, {type: dead}, Boot Loader, Reset, '', $$mdi:android-studio$$, '', '']
+  - ['', BT 1, BT 2, BT 3, BT 4, $$mdi:bluetooth-off$$, Select USB, Select BLE, '', $$mdi:led-on$$, '', '']
+  - ['', '', '', '', '', '', '', '', '', $$mdi:led-off$$,  '', '']
+  - [Flash, '', '', '', '', BT_CLR, {type: dead}, {type: dead}, '', '', '', $$mdi:android-studio$$, '', Flash]
   - ['', '', '', '', '', '', '', {t: Default, s: GoTo}]
   Gaming: 
   - ['', 'TAB', A, Z, E, R, '', '', '', '', '', '']
