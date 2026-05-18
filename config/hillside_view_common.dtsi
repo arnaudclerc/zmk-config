@@ -281,7 +281,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <TAPPING_TERM>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             quick-tap-ms = <QUICK_TAP_TERM>;
             bindings = <&mo>, <&kp>;
         };
@@ -319,14 +319,14 @@
         td_l2: tap_dance_l2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&hls NUM NUM>, <&kp TAB>;
+            tapping-term-ms = <TAPPING_TERM>;
+            bindings = <&hls VIM VIM>, <&kp TAB>;
         };
 
         td_l3: tap_dance_l3 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <TAPPING_TERM>;
             bindings = <&hls MEDIA MEDIA>, <&kp TILDE>;
         };
     
