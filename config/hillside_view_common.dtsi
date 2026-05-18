@@ -376,11 +376,11 @@
         vim_layer {
             display-name = "Vim";
             bindings = <
-    &none  &none  &kp B   &kp E   &kp W   &none          &none  &kp G   &kp O   &kp U   &none  &none
-    &none  &kp Q   &kp N   &kp S   &kp R   &none          &none  &kp H   &kp J   &kp K   &kp L   &none
-    &none  &none  &kp F   &kp C   &kp T   &none          &none  &kp I   &kp A   &kp DOT &none  &none
-                                    &none                           &none
-                    &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
+    &none   &none   &kp B   &kp E   &kp W   &none       &none   &kp G   &kp O   &kp U   &none  &none
+    &none   &kp Q   &kp N   &kp S   &kp R   &none       &none   &kp H   &kp J   &kp K   &kp L  &none
+    &none   &none   &kp F   &kp C   &kp T   &none       &none   &kp I   &kp A   &kp DOT &none  &none
+                                    &none                       &none
+            &tog_off VIM    &trans  &trans  &trans      &trans  &trans  &trans  &tog_on VIM
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
