@@ -361,11 +361,11 @@
         num_layer {
             display-name = "Nav_nbr";
             bindings = <
-    &none  &none  &none             &htb F7 N7   &htb F8 N8   &htb F9 N9       &kp PLUS    &kp HOME    &htb PG_UP UP    &kp END     &trans  &trans
-    &none  &none  &none             &htb F4 N4   &htb F5 N5   &htb F6 N6       &kp EQUAL   &kp LEFT    &htb PG_DN DOWN  &kp RIGHT   &trans  &trans
-    &none  &none  &htb F10 N0        &htb F1 N1   &htb F2 N2   &htb F3 N3       &kp MINUS   &trans      &trans          &trans      &trans  &trans
-                                                &none                                   &none
-                    &tog_off NUM    &trans      &trans      &trans          &trans      &trans      &trans          &tog_on NUM
+    &none  &none  &none             &htb F7 N7  &htb F8 N8   &htb F9 N9         &kp PLUS    &kp HOME    &htb PG_UP UP    &kp END     &trans  &trans
+    &none  &none  &none             &htb F4 N4  &htb F5 N5   &htb F6 N6         &kp EQUAL   &kp LEFT    &htb PG_DN DOWN  &kp RIGHT   &trans  &trans
+    &none  &none  &htb F10 N0       &htb F1 N1  &htb F2 N2   &htb F3 N3         &kp MINUS   &trans      &trans          &trans      &trans  &trans
+                                                &none                                       &none
+                    &tog_off NUM    &trans      &trans      &trans              &trans      &trans      &trans          &tog_on NUM
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
@@ -375,7 +375,7 @@
             display-name = "Vim";
             bindings = <
     &none   &none   &kp B   &kp E   &kp W   &none       &none   &kp G   &kp O   &kp U   &none  &none
-    &none   &kp Q   &kp N   &kp S   &kp R   &none       &none   &kp H   &kp J   &kp K   &kp L   &none
+    &none   &kp Q   &kp N   &kp S   &kp R   &none       &none   &kp H   &kp J   &kp K   &kp L  &none
     &none   &none   &kp F   &kp C   &kp T   &none       &none   &kp I   &kp A   &kp DOT &none  &none
                                     &none                       &none
             &tog_off VIM    &trans  &trans  &trans      &trans  &trans  &trans  &tog_on VIM
@@ -387,11 +387,11 @@
         media_layer {
             display-name = "Media";
             bindings = <
-    &none   &kp C_PREV  &kp C_NEXT  &kp PSCRN   &none   &kp C_VOL_UP    &kp C_BRI_INC   &none       &kp C_GREEN &none   &none   &none
-    &none   &kp C_PP    &none       &none       &none   &kp C_VOL_DN    &kp C_BRI_DEC   &none       &kp C_RED   &none   &none   &none
-    &none   &none       &none       &none       &none   &kp C_MUTE      &kp C_YELLOW    &kp K_MUTE  &kp C_BLUE  &none   &none   &none
-                                                &none                                   &none
-            &tog_off MEDIA          &none       &none   &none           &none           &none       &none       &tog_on MEDIA
+    &none   &kp C_PREV  &kp C_NEXT  &kp PSCRN   &none   &kp C_VOL_UP        &kp C_BRI_INC   &none       &kp C_GREEN &none   &none   &none
+    &none   &kp C_PP    &none       &none       &none   &kp C_VOL_DN        &kp C_BRI_DEC   &none       &kp C_RED   &none   &none   &none
+    &none   &none       &none       &none       &none   &kp C_MUTE          &kp C_YELLOW    &kp K_MUTE  &kp C_BLUE  &none   &none   &none
+                                                &none                                       &none
+            &tog_off MEDIA          &none       &none   &none               &none           &none       &none       &tog_on MEDIA
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
