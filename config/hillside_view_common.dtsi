@@ -389,11 +389,11 @@
         media_layer {
             display-name = "Media";
             bindings = <
-    &none   &kp C_PREV  &kp C_NEXT      &kp PSCRN   &none   &kp C_VOL_UP    &kp C_BRI_INC   &none   &kp ASTERISK    &none    &none   &none
-    &none   &kp C_PP    &none           &none       &none   &kp C_VOL_DN    &kp C_BRI_DEC   &none   &kp LBKT        &none    &none   &none
-    &none   &none       &none           &none       &none   &kp C_MUTE      &kp UNDER       &none   &kp LBRC        &none    &none   &none
-                                                    &none                                   &none
-                        &tog_off MEDIA  &none       &none   &none           &none           &none   &none           &tog_on MEDIA
+    &none   &kp C_PREV  &kp C_NEXT  &kp PSCRN   &none   &kp C_VOL_UP        &kp C_BRI_INC   &none       &kp C_GREEN &none   &none   &none
+    &none   &kp C_PP    &none       &none       &none   &kp C_VOL_DN        &kp C_BRI_DEC   &none       &kp C_RED   &none   &none   &none
+    &none   &none       &none       &none       &none   &kp C_MUTE          &kp C_YELLOW    &kp K_MUTE  &kp C_BLUE  &none   &none   &none
+                                                &none                                       &none
+            &tog_off MEDIA          &none       &none   &none               &none           &none       &none       &tog_on MEDIA
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
