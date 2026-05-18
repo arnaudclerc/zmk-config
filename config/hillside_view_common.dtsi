@@ -354,7 +354,7 @@
     &td_l2          &kp A       &kp R       &htb LSHIFT S   &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb LGUI E     &kp I              &kp O            &kp DQT
     &td_l3          &bootloader &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &bootloader
                                                             &none                                       &none
-    &htcp 0 C_AC_COPY           &htb C_AC_CUT BSPC          &htb LGUI SPACE &htb LCTRL RC(LS(LEFT))     &htb RALT RC(LS(RIGHT)) &htb RSHIFT DEL &htb C_AC_PASTE C_AC_REDO           &sel_line
+    &htcp 0 C_AC_COPY           &htb C_AC_CUT BSPC          &htb LGUI SPACE &htb LCTRL RC(LS(LEFT))     &htb RALT RC(LS(RIGHT)) &htb DEL KP_ENTER &htb C_AC_PASTE C_AC_REDO           &sel_line
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -393,7 +393,7 @@
     &none   &kp C_PP    &none       &none       &none   &kp C_VOL_DN        &kp C_BRI_DEC   &none       &kp C_RED   &none   &none   &none
     &none   &none       &none       &none       &none   &kp C_MUTE          &kp C_YELLOW    &kp K_MUTE  &kp C_BLUE  &none   &none   &none
                                                 &none                                       &none
-            &tog_off MEDIA          &none       &none   &none               &none           &none       &none       &tog_on MEDIA
+            &tog_off MEDIA          &none       &none   &none               &to ADJ         &none       &none       &tog_on MEDIA
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
@@ -406,7 +406,7 @@
     &none       &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &none           &none           &none           &none           &none           &none   &rgb_ug RGB_OFF &none   &none
     &bootloader &none           &none           &none           &none           &bt BT_CLR      &kp UNDER       &none           &none   &studio_unlock  &none   &bootloader
                                                                 &none                                           &none
-                &tog_off ADJ    &none           &none           &none           &none           &none           &none           &tog_on ADJ
+                &none    &none           &none           &none           &to DEF         &none           &none           &none
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
