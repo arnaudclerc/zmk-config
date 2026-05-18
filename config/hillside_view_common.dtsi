@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
 
 // Layer definitions
 #define DEF 0
@@ -51,7 +52,7 @@
 
     macros {
         sel_word: sel_word {
-            compatible = "zmk,behavior-macro-one-param";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <1>;
             bindings = <&kp LC(LEFT) &kp LS(LC(RIGHT))>;
             label = "SEL_WORD";
@@ -403,7 +404,7 @@
     &none       &none           &none           &none           &none           &none           &none           &none           &none   &rgb_ug RGB_OFF &none   &none
     &bootloader &none           &none           &none           &none           &bt BT_CLR      &kp UNDER       &none           &none   &studio_unlock  &none   &bootloader
                                                                 &none                                           &none
-                &tog_off ADJUST &none           &none           &none           &none           &none           &none           &tog_on ADJUST
+                &tog_off ADJ    &none           &none           &none           &none           &none           &none           &tog_on ADJ
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
