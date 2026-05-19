@@ -2,7 +2,7 @@ file_format: "1"
 id: hillside_view_enc
 name: Hillside View Enc
 type: shield
-url: https://github.com/wannabecoffeenerd/hillside
+url: https://github.com/arnaudclerc/zmk-config
 requires:
   - pro_micro
 exposes:
