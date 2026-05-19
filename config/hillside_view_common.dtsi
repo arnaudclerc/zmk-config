@@ -352,8 +352,8 @@
             bindings = <
     &hls NUM NUM    &htb N1 Q   &htb N2 W   &htb N3 F       &htb N4 P       &htb N5 B       &htb N6 J   &htb N7 L               &htb N8 U       &htb N9 Y          &htb SEMI COLON  &gresc
     &td_l2          &kp A       &kp R       &htb LSHIFT S   &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb LGUI E     &kp I              &kp O            &kp DQT
-    &td_l3          &bootloader &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &bootloader
-                                                            &none                                       &none
+    &td_l3          &bootloader &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &kp SQT
+                                                            &bootloader                                       &bootloader
     &htcp 0 C_AC_COPY           &htb C_AC_CUT BSPC          &htb LGUI SPACE &htb LCTRL RC(LS(LEFT))     &htb RALT RC(LS(RIGHT)) &htb DEL KP_ENTER &htb C_AC_PASTE C_AC_REDO           &sel_line
             >;
 
