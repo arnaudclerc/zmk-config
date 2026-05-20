@@ -12,6 +12,7 @@ features:
   - display
   - underglow
   - encoder
+  - studio
 siblings:
   - hillside_view_enc_left
   - hillside_view_enc_right
