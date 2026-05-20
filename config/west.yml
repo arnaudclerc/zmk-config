@@ -2,14 +2,16 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: badjeff
-      url-base: https://github.com/badjeff
-    - name: carrefinho
-      url-base: https://github.com/carrefinho
+    # - name: badjeff
+    #   url-base: https://github.com/badjeff
+    # - name: carrefinho
+    #   url-base: https://github.com/carrefinho
     - name: mike1808
       url-base: https://github.com/mike1808
     - name: janpfischer
       url-base: https://github.com/janpfischer
+    - name: maatthc
+      url-base: https://github.com/maatthc
     # - name: m165437
     #   url-base: https://github.com/M165437
   projects:
@@ -29,5 +31,8 @@ manifest:
     - name: prospector-zmk-module
       remote: mike1808
       revision: fix/new-status-screan-zmk-refactor
+    - name: zmk-feature-appcompanion
+      remote: maatthc
+      revision: main
   self:
     path: config
