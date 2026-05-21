@@ -402,7 +402,7 @@
     &none   &kp C_PP    &none       &none       &none   &kp C_VOL_DN        &kp C_BRI_DEC   &kp C_VOICE_COMMAND &kp C_RED   &none   &none   &none
     &none   &none       &none       &none       &none   &kp C_MUTE          &kp C_YELLOW    &kp C_CHAN_LAST     &kp C_BLUE  &none   &none   &none
                                                 &none                                       &none
-            &none       &none       &none   &none               &to ADJ         &none       &none       &to MEDIA
+            &tog_off MEDIA          &none       &none   &none               &to ADJ         &none       &none       &tog_on MEDIA
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;

@@ -110,27 +110,27 @@ layers:
   - [{type: held}, '', '', {t: 7, h: F7}, {t: 8, h: F8}, {t: 9, h: F9}, '+', HOME, {t: UP, s: $$mdi:arrow-collapse-up$$}, END, {t: v, type: trans}, {t: v, type: trans}]
   - [ '', '', '', {t: 4, h: F4}, {t: 5, h: F5}, {t: 6, h: F6}, '=', LEFT, {t: DOWN, h: $$mdi:arrow-collapse-down$$}, RIGHT, '*', {t: v, type: trans}]
   - ['', '', {t: 0, h: F10}, {t: 1, h: F1}, {t: 2, h: F1}, {t: 3, h: F2}, {type: dead}, {type: dead}, '-', {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}]
-  - [{t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: lock layer, s: '&Tog'}]
+  - [{t: unlock layer, s: '&Tog'}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: lock layer, s: '&Tog'}]
   Vim:
   - ['', '', {t: b, s: before}, {t: e, s: end}, {t: w, s: word}, '', '', {t: g, s: go to}, {t: o, s: newline}, {t: u, s: undo}, '', '']
   - [{type: held}, {t: q, s: record}, {t: n, s: next/prev}, {t: s, s: surround}, {t: r, s: replace}, '', '', {t: h, s: left}, {t: j, s: down}, {t: k, s: up}, {t: l, s: right}, '']
   - ['', '', {t: f, s: find}, {t: c, s: change}, {t: t, s: till}, '', {type: dead}, {type: dead}, '', {t: i, s: insert}, {t: a, s: append}, {t: ., s: repeat}, '', '']
-  - [{t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: lock layer, s: '&Tog'}]
+  - [{t: unlock layer, s: '&Tog'}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: lock layer, s: '&Tog'}]
   Media:
   - ['', C_PREV, C_NEXT, Prt copy, '', $$material:volume_up$$, C_BRI_UP, '', VPN_UP, '', '', '']
   - ['', PAUSE PLAY, '', Prt Edit, '', $$material:volume_down$$, C_BRI_DN, '', VPN_DN, '', '', '']
-  - [{type: held}, '', '', Prt Window, '', $$material:volume_off$$, {type: dead}, {type: dead}, Audio Headset, {t: $$mdi:microphone-off$$, s: mic}, Audio Hdmi, '']
-  - ['', '', '', '', '', '', '', '', '', {t: Adjust, s: '&Tog'}]
+  - [{type: held}, '', '', Prt Window, '', $$material:volume_off$$, {type: dead}, {type: dead}, Audio Headset, {t: $$mdi:microphone-off$$, s: mic}, Audio Hdmi, '', '', '']
+  - [{t: unlock layer, s: '&Tog'}, '', '', '', {t: Adjust, s: '&Tog'}, '', '', {t: unlock layer, s: '&Tog'}]
   Adjust:
   - ['', BT 1, BT 2, BT 3, BT 4, $$mdi:bluetooth-off$$, Select USB, Select BLE, '', $$mdi:led-on$$, '', '']
   - ['', '', '', '', '', '', '', '', '', $$mdi:led-off$$,  '', '']
   - [Flash, '', '', '', '', BT_CLR, {type: dead}, {type: dead}, '', '', '', $$mdi:android-studio$$, '', Flash]
-  - ['', '', '', '', '', '', '', {t: Default, s: GoTo}]
+  - ['', '', '', '', {t: Default, s: GoTo}, '', '', '']
   Gaming: 
-  - ['', 'TAB', A, Z, E, R, '', '', '', '', '', '']
+  - ['', 'TAB', A, Z, E, R, $$material:volume_off$$, '', '', '', '', '']
   - ['', 'SHIFT', Q, S, D, F, '', '', '', '', '', '']
-  - ['', '', S, D, F, G, {type: dead}, {type: dead}, '', '', '', '', '', '']
-  - [G, T, Space, D, '', '', '', {t: '', s: '&To Default'}]
+  - ['', '', W, X, C, V, LGUI, {type: dead}, '', '', '', '', '', '']
+  - [B, LCTRL, Space, M, {t: Default, s: GoTo}, '', '', '']
 combos:
 - tk: [{t: T, h: LSHIFT}, {t: N, h: RSHIFT}]
   k: 'cap_word'
