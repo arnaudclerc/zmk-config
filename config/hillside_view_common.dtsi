@@ -330,7 +330,7 @@
         };
     
     // Combo hold
-        htsw: hold_tap_copy {
+        htsw: hold_select_word {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold Tap";
             display-name = "Hold-Tap";
@@ -340,7 +340,7 @@
             quick-tap-ms = <QUICK_TAP_TERM>;
             bindings = <&sel_word>, <&kp>;
         };
-        htsl: hold_tap_copy {
+        htsl: hold_select_line {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold Tap";
             display-name = "Hold-Tap";
