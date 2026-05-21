@@ -330,7 +330,7 @@
         };
     
     // Combo hold
-        htcp: hold_tap_copy {
+        htsw: hold_tap_copy {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold Tap";
             display-name = "Hold-Tap";
@@ -339,6 +339,16 @@
             tapping-term-ms = <TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_TERM>;
             bindings = <&sel_word>, <&kp>;
+        };
+        htsl: hold_tap_copy {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Hold Tap";
+            display-name = "Hold-Tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP_TERM>;
+            bindings = <&sel_line>, <&kp>;
         };
 
     };
@@ -352,8 +362,8 @@
     &hls NUM NUM    &htb N1 Q   &htb N2 W   &htb N3 F       &htb N4 P       &htb N5 B       &htb N6 J   &htb N7 L               &htb N8 U       &htb N9 Y          &htb SEMI COLON  &gresc
     &td_l2          &kp A       &kp R       &htb LGUI S     &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb RGUI E     &kp I              &kp O            &kp DQT
     &td_l3          &kp Z       &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &kp SQT
-                                                            &bootloader                                 &bootloader
-    &htcp 0 C_AC_COPY           &htb C_AC_CUT BSPC          &htb LGUI SPACE &htb LCTRL RC(RS(LEFT))     &htb RALT RC(RS(RIGHT)) &htb DEL RET    &htb C_AC_PASTE C_AC_REDO           &sel_line
+                                                            &C_AC_CUT                                   &C_AC_PASTE
+    &htsw 0 C_AC_COPY           &htb LCTRL BSPC             &htb LGUI SPACE &htb LALT RC(RS(LEFT))      &htb LALT RC(RS(RIGHT)) &htb LGUI RET   &htb RCTRL DEL     &htsl 0 C_AC_REDO
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
