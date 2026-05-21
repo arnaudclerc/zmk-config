@@ -362,7 +362,7 @@
     &hls NUM NUM    &htb N1 Q   &htb N2 W   &htb N3 F       &htb N4 P       &htb N5 B       &htb N6 J   &htb N7 L               &htb N8 U       &htb N9 Y          &htb SEMI COLON  &gresc
     &td_l2          &kp A       &kp R       &htb LGUI S     &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb RGUI E     &kp I              &kp O            &kp DQT
     &td_l3          &kp Z       &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &kp SQT
-                                                            &C_AC_CUT                                   &C_AC_PASTE
+                                                            &kp C_AC_CUT                                &kp C_AC_PASTE
     &htsw 0 C_AC_COPY           &htb LCTRL BSPC             &htb LGUI SPACE &htb LALT RC(RS(LEFT))      &htb LALT RC(RS(RIGHT)) &htb LGUI RET   &htb RCTRL DEL     &htsl 0 C_AC_REDO
             >;
 
