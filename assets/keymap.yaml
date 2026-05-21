@@ -103,13 +103,13 @@ draw_config:
 layers:
   Default: 
   - [{t: '&sl', h: Numbers}, {t: Q, h: '1'}, {t: W, h: '2'}, {t: F, h: '3'}, {t: P, h: '4'}, {t: B, h: '5'}, {t: J, h: '6', type: dance1}, {t: L, h: '7'}, {t: U, h: '8'}, {t: Y, h: '9'}, {t: COLON, h: SEMI}, GRAVE]
-  - [{t: TAB, h: Vim, s: '&sl'}, A, R, {t: S, h: LMETA}, {t: T, h: LSHIFT}, G, M, {t: N, h: RSHIFT}, {t: E, h: RMETA}, I, O, $$mdi:format-quote-open$$]
-  - [{t: '~', h: Media, s: '&sl'}, Z, X, C, D, V, {type: dead}, {type: dead}, K, H, {t: DOT, h: COMMA}, {t: '!', h: '?'}, {t: /, h: '\'}, SQT]
-  - [{t: Select Word, h: copy}, {t: BSPC, h: cut}, {t: SPACE, h: SUPER}, {t: Select Backward, h: LCTRL}, {t: Select Forward, h: ALT}, {t: Enter, h: Shift}, {t: $$material:refresh$$, h: paste}, {t: Select Line, s: '&To Gaming'}]
+  - [{s: TAB, h: Vim, t: '&sl'}, A, R, {t: S, h: LMETA}, {t: T, h: LSHIFT}, G, M, {t: N, h: RSHIFT}, {t: E, h: RMETA}, I, O, $$mdi:format-quote-open$$]
+  - [{s: '~', h: Media, t: '&sl'}, Z, X, C, D, V, {type: dead}, {type: dead}, K, H, {t: DOT, h: COMMA}, {t: '!', h: '?'}, {t: /, h: '\'}, SQT]
+  - [{h: SelWord, t: copy}, {t: BSPC, h: LCTRL}, {t: SPACE, h: SUPER}, {t: Select Backward, h: LALT}, {t: Select Forward, h: LALT}, {t: Enter, h: SUPER}, {t: Del, h: RCTRL}, {h: SelLine, t: $$material:refresh$$}]
   Numbers:
-  - [{type: held}, '', '', {t: '7', h: F7}, {t: '8', h: F8}, {t: '9', h: F9}, '+', HOME, {t: UP, s: $$mdi:arrow-collapse-up$$}, END, {t: v, type: trans}, {t: v, type: trans}]
-  - [ '', '', '', {t: '4', h: F4}, {t: '5', h: F5}, {t: '6', h: F6}, '=', LEFT, {t: DOWN, h: $$mdi:arrow-collapse-down$$}, RIGHT, '*', {t: v, type: trans}]
-  - ['', '', '', {t: '0', h: F10}, {t: '1', h: F1}, {t: '2', h: F2}, {type: dead}, {type: dead}, '-', {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}]
+  - [{type: held}, '', '', {t: 7, h: F7}, {t: 8, h: F8}, {t: 9, h: F9}, '+', HOME, {t: UP, s: $$mdi:arrow-collapse-up$$}, END, {t: v, type: trans}, {t: v, type: trans}]
+  - [ '', '', '', {t: 4, h: F4}, {t: 5, h: F5}, {t: 6, h: F6}, '=', LEFT, {t: DOWN, h: $$mdi:arrow-collapse-down$$}, RIGHT, '*', {t: v, type: trans}]
+  - ['', '', {t: 0, h: F10}, {t: 1, h: F1}, {t: 2, h: F1}, {t: 3, h: F2}, {type: dead}, {type: dead}, '-', {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}]
   - [{t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: v, type: trans}, {t: lock layer, s: '&Tog'}]
   Vim:
   - ['', '', {t: b, s: before}, {t: e, s: end}, {t: w, s: word}, '', '', {t: g, s: go to}, {t: o, s: newline}, {t: u, s: undo}, '', '']
@@ -185,7 +185,7 @@ combos:
   k: '{'
   l: [Default]
 - tk: [D, V]
-  k: '$$mdi:percent$$'
+  k: '$$mdi:currency-usd$$'
   l: [Default]
 - tk: [K, H]
   k: '$$mdi:chevron-up$$'
@@ -195,7 +195,7 @@ combos:
   l: [Default]
 - tk: [F, U]
   a: top
-  k: '$$mdi:currency-usd$$'
+  k: '$$mdi:percent$$'
   l: [Default]
 - tk: [g, o]
   k: 'x cut'
