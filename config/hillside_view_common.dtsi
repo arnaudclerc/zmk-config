@@ -56,8 +56,8 @@
         };
 
         sel_line: sel_line {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
             bindings = <&kp HOME &kp LS(END)>;
             label = "SEL_LINE";
         };
@@ -315,11 +315,11 @@
         };
 
     // tap Dances
-        td_l2: tap_dance_l2 {
+        td_l2: tap_dance_l1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM>;
-            bindings = <&hls VIM VIM>, <&kp TAB>;
+            bindings = <&hls NUM NUM>, <&kp TAB>;
         };
 
         td_l3: tap_dance_l3 {
@@ -348,7 +348,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_TERM>;
-            bindings = <&sel_line>, <&kp>;
+            bindings = <&sel_line>, <&key_repeat>;
         };
 
     };
@@ -359,11 +359,11 @@
         default_layer {
             display-name = "Colemak";
             bindings = <
-    &hls NUM NUM    &htb N1 Q   &htb N2 W   &htb N3 F       &htb N4 P       &htb N5 B       &htb N6 J   &htb N7 L               &htb N8 U       &htb N9 Y          &htb SEMI COLON  &gresc
-    &td_l2          &kp A       &kp R       &htb LGUI S     &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb RGUI E     &kp I              &kp O            &kp DQT
-    &td_l3          &kp Z       &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &kp SQT
+    &hls VIM VIM    &htb N1 Q   &htb N2 W   &htb N3 F       &htb N4 P       &htb N5 B       &htb N6 J   &htb N7 L               &htb N8 U       &htb N9 Y          &htb SEMI COLON  &gresc
+    &td_l1          &kp A       &kp R       &htb LGUI S     &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb RGUI E     &kp I              &kp O            &htb SQT DQT
+    &td_l3          &kp Z       &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &kp Q
                                                             &kp C_AC_CUT                                &kp C_AC_PASTE
-    &htsw 0 C_AC_COPY           &htb LCTRL BSPC             &htb LGUI SPACE &htb LALT RC(RS(LEFT))      &htb LALT RC(RS(RIGHT)) &htb LGUI RET   &htb RCTRL C_AC_DEL     &htsl 0 C_AC_REDO
+    &htsw 0 C_AC_COPY           &htb LCTRL BSPC             &htb LGUI SPACE &htb LALT RC(RS(LEFT))      &htb LALT RC(RS(RIGHT)) &htb LGUI RET   &htb RCTRL C_AC_DEL     &htsl 0 0
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -389,7 +389,7 @@
     &none   &kp Q   &kp N   &kp S   &kp R   &none       &none   &kp H   &kp J   &kp K   &kp L  &none
     &none   &none   &kp F   &kp C   &kp T   &none       &none   &kp I   &kp A   &kp DOT &none  &none
                                     &none                       &none
-            &tog_off VIM            &trans  &trans  &trans      &trans  &trans  &trans  &tog_on VIM
+            &tog_off VIM            &trans  &trans  &trans      &to GAME &trans  &trans  &tog_on VIM
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
@@ -402,7 +402,7 @@
     &none   &kp C_PP    &none       &none       &none   &kp C_VOL_DN        &kp C_BRI_DEC   &kp C_VOICE_COMMAND &kp C_RED   &none   &none   &none
     &none   &none       &none       &none       &none   &kp C_MUTE          &kp C_YELLOW    &kp C_CHAN_LAST     &kp C_BLUE  &none   &none   &none
                                                 &none                                       &none
-            &tog_off MEDIA          &none       &none   &none               &to ADJ         &none       &none       &tog_on MEDIA
+            &tog_off MEDIA          &none       &trans  &none               &to ADJ         &none       &none       &tog_on MEDIA
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
