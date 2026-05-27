@@ -363,7 +363,7 @@
     &td_l2          &kp A       &kp R       &htb LGUI S     &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb RGUI E     &kp I              &kp O            &kp DQT
     &td_l3          &kp Z       &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &kp SQT
                                                             &kp C_AC_CUT                                &kp C_AC_PASTE
-    &htsw 0 C_AC_COPY           &htb LCTRL BSPC             &htb LGUI SPACE &htb LALT RC(RS(LEFT))      &htb LALT RC(RS(RIGHT)) &htb LGUI RET   &htb RCTRL DEL     &htsl 0 C_AC_REDO
+    &htsw 0 C_AC_COPY           &htb LCTRL BSPC             &htb LGUI SPACE &htb LALT RC(RS(LEFT))      &htb LALT RC(RS(RIGHT)) &htb LGUI RET   &htb RCTRL C_AC_DEL     &htsl 0 C_AC_REDO
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -431,7 +431,7 @@
     &kp B       &kp LCTRL   &kp SPACE       &kp M                   &to DEF     &none   &none   &none
             >;
 
-            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_NEXT C_PREV>;
         };
     };
 };
