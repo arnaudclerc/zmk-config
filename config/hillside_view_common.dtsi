@@ -315,7 +315,7 @@
         };
 
     // tap Dances
-        td_l2: tap_dance_l1 {
+        td_l1: tap_dance_l1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM>;
