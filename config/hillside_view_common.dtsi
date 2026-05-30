@@ -430,11 +430,11 @@
         game_layer {
             display-name = "Game";
             bindings = <
-    &kp M   &kp TAB         &kp A   &kp Z   &kp E   &kp R           &kp C_MUTE  &none   &none   &none   &none   &none
-    &tdg    &htb LSHIFT H   &kp Q   &kp S   &kp D   &kp F           &none       &none   &none   &none   &none   &none
-    &kp O   &kp U           &kp W   &kp X   &kp C   &kp V           &none       &none   &none   &none   &none   &none
+    &kp M   &kp TAB         &kp A   &kp Z   &htb E COMMA    &kp R           &kp C_MUTE  &none   &none   &none   &none   &none
+    &tdg    &htb LSHIFT H   &kp Q   &kp S   &kp D           &kp F           &none       &none   &none   &none   &none   &none
+    &kp O   &kp U           &kp W   &kp X   &kp C           &kp V           &none       &none   &none   &none   &none   &none
                                         &kp LGUI                                    &none
-    &kp B       &kp LCTRL       &htb T SPACE            &htb LALT P     &to DEF     &none   &none   &none
+    &kp B       &kp LCTRL       &htb T SPACE        &htb ESC P      &to DEF     &none   &none   &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_NEXT C_PREV>;
