@@ -44,7 +44,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        
+
     };
 
     macros {
@@ -257,7 +257,7 @@
     };
 
     behaviors {
-    
+
     // layer toggles
         tog_on: toggle_layer_on_only {
             compatible = "zmk,behavior-toggle-layer";
@@ -328,7 +328,7 @@
             tapping-term-ms = <TAPPING_TERM>;
             bindings = <&hls MEDIA MEDIA>, <&kp TILDE>;
         };
-    
+
     // Combo hold
         htsw: hold_select_word {
             compatible = "zmk,behavior-hold-tap";
@@ -426,9 +426,9 @@
             bindings = <
     &none       &kp TAB         &kp A   &kp Z   &kp E   &kp R           &kp C_MUTE  &none   &none   &none   &none   &none
     &none       &htb LSHIFT H   &kp Q   &kp S   &kp D   &kp F           &none       &none   &none   &none   &none   &none
-    &none       &none           &kp W   &kp X   &kp C   &kp V           &none       &none   &none   &none   &none   &none
+    &none       &kp U           &kp W   &kp X   &kp C   &kp V           &none       &none   &none   &none   &none   &none
                                         &kp LGUI                                    &none
-    &kp B       &kp LCTRL       &kp SPACE               &kp LALT        &to DEF     &none   &none   &none
+    &kp B       &kp LCTRL       &htb T SPACE            &htb P LALT     &to DEF     &none   &none   &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_NEXT C_PREV>;
