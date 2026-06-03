@@ -51,14 +51,18 @@
         sel_word: sel_word {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RC(LEFT) &kp RS(RC(RIGHT))>;
+            bindings
+                = <&kp RC(LEFT)>
+                , <&kp RS(RC(RIGHT))>;
             label = "SEL_WORD";
         };
 
         sel_line: sel_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp HOME &kp LS(END)>;
+            bindings
+                = <&kp HOME>
+                , <&kp LS(END)>;
             label = "SEL_LINE";
         };
     };
@@ -295,15 +299,6 @@
         };
 
     // Hold-tap behaviors
-        hsk: mod-tap-with-stick-key {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <TAPPING_TERM>;
-            flavor = "hold-preferred";
-            quick-tap-ms = <QUICK_TAP_TERM>;
-            bindings = <&kp>, <&sk>;
-        };
-
         htb: hold_tap_balanced {
             compatible = "zmk,behavior-hold-tap";
             label = "Hold Tap Balanced";
@@ -314,20 +309,18 @@
             bindings = <&kp>, <&kp>;
         };
 
-    // tap Dances
-        td_l1: tap_dance_l1 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
+
+        htr: hold_tap_repeat {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Hold Tap Balanced";
+            #binding-cells = <2>;
+            flavor = "balanced";
             tapping-term-ms = <TAPPING_TERM>;
-            bindings = <&hls NUM NUM>, <&kp TAB>;
+            quick-tap-ms = <QUICK_TAP_TERM>;
+            bindings = <&kp>, <&key_repeat>;
         };
 
-        td_l3: tap_dance_l3 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <TAPPING_TERM>;
-            bindings = <&hls MEDIA MEDIA>, <&kp TILDE>;
-        };
+    // tap Dances
         tdg: tap_game {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -344,17 +337,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_TERM>;
-            bindings = <&sel_word>, <&kp>;
-        };
-        htsl: hold_select_line {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Hold Tap";
-            display-name = "Hold-Tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <TAPPING_TERM>;
-            quick-tap-ms = <QUICK_TAP_TERM>;
-            bindings = <&sel_line>, <&key_repeat>;
+            bindings = <&sel_word>, <&sel_line>;
         };
 
     };
@@ -366,10 +349,10 @@
             display-name = "Colemak";
             bindings = <
     &hls VIM VIM    &htb N1 Q   &htb N2 W   &htb N3 F       &htb N4 P       &htb N5 B       &htb N6 J   &htb N7 L               &htb N8 U       &htb N9 Y          &htb SEMI COLON  &gresc
-    &td_l1          &kp A       &kp R       &htb LGUI S     &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb RGUI E     &kp I              &kp O            &htb SQT DQT
-    &td_l3          &kp Z       &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &tog_on GAME
-                                                            &kp C_AC_CUT                                &kp C_AC_PASTE
-    &htsw 0 C_AC_COPY           &htb LCTRL BSPC             &htb LGUI SPACE &htb LALT RC(RS(LEFT))      &htb LALT RC(RS(RIGHT)) &htb RGUI RET   &htb RCTRL C_AC_DEL     &htsl 0 0
+    &hlt NUM TAB    &kp A       &kp R       &htb LGUI S     &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb RGUI E     &kp I              &kp O            &htb SQT DQT
+    &hlt MEDIA N0   &kp Z       &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &hlt GAME TILDE
+                                                            &kp C_VOICE_COMMAND                         &kp C_AC_PASTE
+    &htsw 0 0       &htb LCTRL RC(RS(RIGHT))    &htb LGUI RET   &htb LALT RC(RS(LEFT))                  &htb LALT BSPC          &htb RGUI SPACE &htb RCTRL C_AC_DEL     &htr C_AC_COPY 0
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -380,8 +363,8 @@
             bindings = <
     &none  &none  &none             &htb F7 N7  &htb F8 N8   &htb F9 N9         &kp PLUS    &kp HOME    &htb PG_UP UP   &kp END     &trans          &trans
     &none  &none  &kp LSHIFT        &htb F4 N4  &htb F5 N5   &htb F6 N6         &kp EQUAL   &kp LEFT    &htb PG_DN DOWN &kp RIGHT   &kp ASTERISK    &trans
-    &none  &none  &htb F10 N0       &htb F1 N1  &htb F2 N2   &htb F3 N3         &kp MINUS   &trans      &trans          &trans      &trans          &trans
-                                                &none                                       &none
+    &none  &none  &htb F10 N0       &htb F1 N1  &htb F2 N2   &htb F3 N3         &kp MINUS   &trans      &trans          &trans      &trans          &none
+                                                &kp C_AC_CUT                                &none
                     &tog_off NUM    &trans      &trans      &trans              &trans      &trans      &trans          &tog_on NUM
             >;
 
@@ -405,9 +388,9 @@
             display-name = "Media";
             bindings = <
     &none   &kp C_PREV  &kp C_NEXT  &kp PSCRN   &none   &none       &kp C_BRI_INC   &none               &kp C_GREEN &none   &none   &none
-    &none   &kp C_PP    &none       &none       &none   &none       &kp C_BRI_DEC   &kp C_VOICE_COMMAND &kp C_RED   &none   &none   &none
+    &none   &kp C_PP    &none       &none       &none   &none       &kp C_BRI_DEC   &none               &kp C_RED   &none   &none   &none
     &none   &none       &none       &none       &none   &none       &kp C_YELLOW    &kp C_CHAN_LAST     &kp C_BLUE  &none   &none   &none
-                                                &none                               &kp C_MUTE
+                                                &trans                              &kp C_MUTE
             &tog_off MEDIA          &none       &trans  &none       &to ADJ         &none       &none       &tog_on MEDIA
             >;
 
@@ -430,11 +413,11 @@
         game_layer {
             display-name = "Game";
             bindings = <
-    &kp M   &htb COMMA TAB  &kp A   &kp Z   &kp E       &kp R       &kp C_MUTE  &none   &none   &none   &none   &none
-    &tdg    &htb LSHIFT H   &kp Q   &kp S   &kp D       &kp F       &none       &none   &none   &none   &none   &none
-    &kp O   &kp U           &kp W   &kp X   &kp C       &kp V       &none       &none   &none   &none   &none   &none
-                                        &kp LGUI                                    &none
-    &kp B       &kp LCTRL       &htb T SPACE        &htb ESC P      &to DEF     &none   &none   &none
+    &htb TILDE M    &htb COMMA TAB  &kp A   &kp Z   &kp E       &kp R       &kp C_MUTE  &none   &none   &none   &none   &none
+    &tdg            &htb LSHIFT V   &kp Q   &kp S   &kp D       &kp F       &none       &none   &none   &none   &none   &none
+    &htb I O        &kp U           &kp W   &kp X   &kp C       &kp H       &none       &none   &none   &none   &none   &none
+                                            &kp LGUI                                    &none
+    &kp B           &kp LCTRL       &kp SPACE    &htb ESC P              &to DEF     &none   &none   &tog_on GAME
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_NEXT C_PREV>;
