@@ -337,7 +337,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_TERM>;
-            bindings = <&sel_word>, <&sel_line>;
+            bindings = <&sel_line>, <&sel_word>;
         };
 
     };
@@ -352,7 +352,7 @@
     &hlt NUM TAB    &kp A       &kp R       &htb LGUI S     &htb LSHIFT T   &kp G           &kp M       &htb RSHIFT N           &htb RGUI E     &kp I              &kp O            &htb SQT DQT
     &hlt MEDIA N0   &kp Z       &kp X       &kp C           &kp D           &kp V           &kp K       &kp H                   &htb COMMA DOT  &htb EXCL QMARK    &htb BSLH FSLH   &hlt GAME TILDE
                                                             &kp C_VOICE_COMMAND                         &kp C_AC_PASTE
-    &htsw 0 0       &htb LCTRL RC(RS(RIGHT))    &htb LGUI RET   &htb LALT RC(RS(LEFT))                  &htb LALT BSPC          &htb RGUI SPACE &htb RCTRL C_AC_DEL     &htr C_AC_COPY 0
+    &htsw 0 0       &htb LCTRL RC(RS(LEFT)) &htb LGUI RET   &htb LALT RC(RS(RIGHT))                  &htb LALT BSPC          &htb RGUI SPACE &htb RCTRL C_AC_DEL     &htr C_AC_COPY 0
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
