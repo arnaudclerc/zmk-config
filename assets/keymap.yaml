@@ -119,7 +119,7 @@ layers:
   Media:
   - ['', C_PREV, C_NEXT, Prt, '', '', C_BRI_UP, '', VPN_UP, '', '', '']
   - ['', PAUSE PLAY, '', '', '', '', C_BRI_DN,  '', VPN_DN, '', '', '']
-  - [{type: held}, '', '', '', '', '', {type: dead}, $$material:volume_off$$, Audio Headset, Switch Audio, Audio Hdmi, '', '', '']
+  - [{type: held}, '', '', '', '', '', {t: v, type: trans}, $$material:volume_off$$, Audio Headset, Switch Audio, Audio Hdmi, '', '', '']
   - [{t: unlock layer, s: '&Tog'}, '', '', '', {t: Adjust, s: '&Tog'}, '', '', {t: unlock layer, s: '&Tog'}]
   Adjust:
   - ['', BT 1, BT 2, BT 3, BT 4, '', Select USB, Select BLE, '', $$mdi:led-on$$, '', '']
@@ -127,9 +127,9 @@ layers:
   - [Flash, '', '', '', '', BT_CLR, {type: dead}, {type: dead}, '', '', '', $$mdi:android-studio$$, '', Flash]
   - ['', '', '', '', {t: Default, s: GoTo}, '', '', '']
   Gaming: 
-  - [{t: M, h: '~'}, {t: 'TAB', s: COMMA}, A, Z, E, R, $$material:volume_off$$, '', '', '', '', '']
+  - [{t: M, h: '~'}, {t: 'TAB', h: COMMA}, A, Z, E, R, $$material:volume_off$$, '', '', '', '', '']
   - [{t: 1, s: 2, h: 3}, {t: V, h: 'Shift'}, Q, S, D, F, '', '', '', '', '', '']
-  - [{t: O, h: I}, U, W, X, C, V, LGUI, {type: dead}, '', '', '', '', '', '']
+  - [{t: O, h: I}, U, W, X, C, H, LGUI, {type: dead}, '', '', '', '', '', '']
   - [B, LCTRL, Space, {t: P, h: ESC}, {t: Default, s: GoTo}, '', '', {t: Game, s: '&Tog'}]
 combos:
 - tk: [{t: T, h: LSHIFT}, {t: N, h: RSHIFT}]
